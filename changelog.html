@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>COMP 465 RTS | Changelog</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header>
+        <div class="content-wrap">
+          <h1>Development Changelog</h1>
+
+          <p>
+            A chronological record of features, fixes, and changes made during
+            development of the COMP 465 RTS project.
+          </p>
+        </div>
+      </header>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="documentation.html">Documentation</a>
+        <a href="project.html">Project Overview</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+
+      <main class="page-content">
+        <!-- October 19, 2026 -->
+        <details class="date-entry" open>
+          <summary>
+            October 19, 2026
+            <span class="date-description">Combat and Enemy AI</span>
+          </summary>
+
+          <div class="date-content">
+            <ul class="change-list">
+              <li>
+                Added an HQ quick-access button that selects the player's
+                Headquarters and centers the camera when clicked again.
+              </li>
+
+              <li>
+                Added reusable camera focus functions so UI controls and the
+                existing Space-key camera behavior can use the same system.
+              </li>
+
+              <li>
+                Added predefined enemy attack routes using manually placed
+                waypoints and NavMesh movement between each route point.
+              </li>
+
+              <li>
+                Added an Inspector-configurable enemy spawner for selecting the
+                enemy building prefab, vehicle prefab, attack route, and vehicle
+                spawn interval.
+              </li>
+
+              <li>
+                Added a reusable CombatUnit system that handles factions,
+                hostile target detection, weapon damage, firing intervals, and
+                optional turret rotation.
+              </li>
+
+              <li>
+                Connected combat damage to the existing SelectableHealth system.
+              </li>
+
+              <li>
+                Enabled combat vehicles to disappear when their health reaches
+                zero using Destroy On Death.
+              </li>
+
+              <li>
+                Added visible LineRenderer hitscan tracers between weapon fire
+                points and targets.
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- October 14, 2026 -->
+        <details class="date-entry">
+          <summary>
+            October 14, 2026
+            <span class="date-description"
+              >Command and Production Refactor</span
+            >
+          </summary>
+
+          <div class="date-content">
+            <ul class="change-list">
+              <li>
+                Reworked the command system so the CommandPanelManager only
+                manages the shared 3×4 command panel.
+              </li>
+
+              <li>
+                Added unit-specific command components such as HumveeCommands,
+                HDTCommands, FuelTruckCommands, and production-building command
+                scripts.
+              </li>
+
+              <li>
+                Added reusable VehicleCommandsBase and
+                ProductionBuildingCommandsBase classes.
+              </li>
+
+              <li>
+                Refactored VehicleConstruction into a reusable construction
+                component instead of storing individual building prefabs in the
+                central command manager.
+              </li>
+
+              <li>
+                Added a reusable BuildingProductionQueue with production time,
+                manpower requirements, and physical resource costs.
+              </li>
+
+              <li>Added rally-point support to production buildings.</li>
+
+              <li>
+                Added production progress and queue information to the selected
+                object information panel.
+              </li>
+
+              <li>
+                Added SelectableInfoData and SelectableHealth components for
+                reusable unit and building information.
+              </li>
+
+              <li>
+                Removed obsolete individual production wrapper scripts after
+                converting production buildings to the reusable queue system.
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- October 8, 2026 -->
+        <details class="date-entry">
+          <summary>
+            October 8, 2026
+            <span class="date-description">Construction and Logistics</span>
+          </summary>
+
+          <div class="date-content">
+            <ul class="change-list">
+              <li>
+                Added a 10×10 world grid for building placement and grid-cell
+                occupancy tracking.
+              </li>
+
+              <li>
+                Added building ghost previews with valid and invalid placement
+                feedback.
+              </li>
+
+              <li>
+                Added vehicle-based construction where the selected vehicle
+                drives to the construction location before completing the
+                building.
+              </li>
+
+              <li>
+                Added queued construction orders using Shift-click placement.
+              </li>
+
+              <li>
+                Added NavMeshObstacle carving to completed buildings while
+                keeping placement ghosts non-blocking.
+              </li>
+
+              <li>
+                Added specialized resource warehouses for Wood, Metal,
+                Electronics, Fuel, Water, and Food.
+              </li>
+
+              <li>
+                Added physical vehicle cargo and warehouse transfer points.
+              </li>
+
+              <li>
+                Added persistent vehicle logistics routes with visible route
+                markers.
+              </li>
+
+              <li>
+                Added physical resource nodes that vehicles can load resources
+                from.
+              </li>
+
+              <li>
+                Added the top resource display showing stored and in-transit
+                physical resources.
+              </li>
+
+              <li>
+                Added resource hover information showing where stored and
+                transported resources are currently located.
+              </li>
+
+              <li>
+                Added manpower capacity and Barracks-based manpower expansion.
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- September 21, 2026 -->
+        <details class="date-entry">
+          <summary>
+            September 21, 2026
+            <span class="date-description">Initial RTS Systems</span>
+          </summary>
+
+          <div class="date-content">
+            <ul class="change-list">
+              <li>
+                Created the initial COMP 465 RTS Unity project and playable
+                scene.
+              </li>
+
+              <li>
+                Added RTS camera movement using arrow keys and screen-edge
+                scrolling.
+              </li>
+
+              <li>
+                Added camera zoom and Space-key camera focusing on selected
+                units.
+              </li>
+
+              <li>Added a baked NavMesh for vehicle movement.</li>
+
+              <li>Added the first controllable Truck vehicle.</li>
+
+              <li>Added single-click and drag-box unit selection.</li>
+
+              <li>
+                Added visual selection indicators for selected units and
+                buildings.
+              </li>
+
+              <li>Added the Headquarters as the first selectable building.</li>
+
+              <li>
+                Added early Headquarters vehicle production and rally-point
+                functionality.
+              </li>
+
+              <li>
+                Added the first fixed 3×4 RTS command panel using QWER, ASDF,
+                and ZXCV hotkeys.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </main>
+
+      <footer>
+        <div class="content-wrap">
+          <p>COMP 465 RTS Development Project</p>
+          <p>Copyright 2026 by Tim K.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

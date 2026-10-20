@@ -1,0 +1,592 @@
+/*
+Color Palette
+
+#C9DDF2 - Ocean Blue
+#D9CBB8 - Sand
+#B8C4A9 - Sage
+#C9A89A - Dusty Clay
+#F1E7D3 - Cream
+#F7F5F0 - Soft Off-White
+*/
+
+/* Global styles
+------------------------------------ */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 30px;
+
+  font-family: "IBM Plex Sans", sans-serif;
+
+  color: #6f665e;
+  background: #f1e7d3;
+}
+
+.site-container {
+  background: #f7f5f0;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
+}
+
+.content-wrap {
+  max-width: 950px;
+
+  margin: 0 auto;
+
+  padding: 40px;
+
+  overflow: hidden;
+}
+
+/* Text
+------------------------------------ */
+
+h1,
+h2,
+h3 {
+  font-family: "IBM Plex Serif", serif;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 600;
+
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 500;
+
+  margin-top: 0;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: #4f6679;
+}
+
+a:hover {
+  color: #2f4558;
+}
+
+/* Header
+------------------------------------ */
+
+header {
+  background: #b8c4a9;
+
+  color: #3f3a35;
+
+  border-radius: 15px 15px 0 0;
+}
+
+header h1,
+header h2 {
+  margin-bottom: 10px;
+}
+
+/* Development Notices
+------------------------------------ */
+
+.ai-notice,
+.purpose-notice {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  background: #f7f5f0;
+
+  border-radius: 12px;
+}
+
+.notice-content {
+  padding: 25px 30px;
+}
+
+.notice-content h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+
+  color: #3f3a35;
+}
+
+.notice-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* AI-Assisted Development Notice */
+
+.ai-notice {
+  border: 6px solid #a83232;
+}
+
+.ai-notice h2 {
+  color: #8f2929;
+}
+
+/* Project Purpose Notice */
+
+.purpose-notice {
+  border: 5px solid #d29419;
+}
+
+.purpose-notice h2 {
+  color: #9a6810;
+}
+
+/* Navigation
+------------------------------------ */
+
+nav {
+  background: #d9cbb8;
+
+  text-align: center;
+
+  padding: 15px;
+
+  margin-bottom: 20px;
+
+  border-radius: 0 0 15px 15px;
+}
+
+nav a {
+  display: inline-block;
+
+  margin: 5px 15px;
+
+  padding: 8px 12px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  color: #3f3a35;
+
+  border-radius: 8px;
+}
+
+nav a:hover {
+  background: #f7f5f0;
+}
+
+/* Main Sections
+------------------------------------ */
+
+section {
+  margin-bottom: 20px;
+
+  border-radius: 15px;
+}
+
+.welcome {
+  background: #c9ddf2;
+}
+
+.links-section {
+  background: #d9cbb8;
+}
+
+/* Collapsible Date Sections
+------------------------------------ */
+
+.page-content {
+  max-width: 950px;
+  margin: 20px auto;
+}
+
+.date-entry {
+  background: #c9ddf2;
+
+  margin-bottom: 20px;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+}
+
+.date-entry summary {
+  cursor: pointer;
+
+  padding: 22px 30px;
+
+  font-family: "IBM Plex Serif", serif;
+
+  font-size: 1.6em;
+
+  font-weight: 600;
+
+  color: #3f3a35;
+
+  list-style: none;
+
+  user-select: none;
+}
+
+.date-entry summary::-webkit-details-marker {
+  display: none;
+}
+
+.date-entry summary::after {
+  content: "+";
+
+  float: right;
+
+  font-family: "IBM Plex Sans", sans-serif;
+
+  font-size: 1.2em;
+
+  font-weight: 600;
+}
+
+.date-entry[open] summary::after {
+  content: "−";
+}
+
+.date-entry summary:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.date-description {
+  display: block;
+
+  margin-top: 5px;
+
+  font-family: "IBM Plex Sans", sans-serif;
+
+  font-size: 0.55em;
+
+  font-weight: 400;
+
+  color: #6f665e;
+}
+
+.date-content {
+  padding: 0 30px 30px;
+}
+
+/* Documentation Feature Sections
+------------------------------------ */
+
+.feature {
+  background: #f7f5f0;
+
+  padding: 25px;
+
+  margin-top: 20px;
+
+  border-radius: 12px;
+}
+
+.feature:first-child {
+  margin-top: 0;
+}
+
+.feature h3 {
+  margin-top: 0;
+
+  color: #3f3a35;
+}
+
+/* Changelog
+------------------------------------ */
+
+.change-list {
+  background: #f7f5f0;
+
+  padding: 25px 25px 25px 45px;
+
+  border-radius: 12px;
+
+  line-height: 1.7;
+}
+
+.change-list li {
+  margin-bottom: 12px;
+}
+
+.change-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Homepage Cards
+------------------------------------ */
+
+.page-links {
+  display: flex;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+.page-card {
+  flex: 1;
+
+  min-width: 220px;
+
+  padding: 20px;
+
+  background: #f7f5f0;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  color: #6f665e;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.page-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+.page-card h3 {
+  margin-top: 0;
+}
+
+/* Changelog
+------------------------------------ */
+
+.changelog {
+  background: #c9ddf2;
+}
+
+.change-list {
+  line-height: 1.7;
+}
+
+.change-list li {
+  margin-bottom: 12px;
+}
+
+/* Documentation
+------------------------------------ */
+
+.documentation-cycle {
+  background: #c9ddf2;
+}
+
+.feature {
+  background: #f7f5f0;
+
+  padding: 25px;
+
+  margin-top: 20px;
+
+  border-radius: 12px;
+}
+
+.feature h3 {
+  margin-top: 0;
+
+  font-size: 1.4em;
+
+  color: #3f3a35;
+}
+
+/* Project Overview
+------------------------------------ */
+
+.project-section {
+  background: #c9ddf2;
+}
+
+.project-section.alternate {
+  background: #d9cbb8;
+}
+
+.project-section ul {
+  line-height: 1.8;
+}
+
+/* Roadmap
+------------------------------------ */
+
+.roadmap-entry {
+  margin-bottom: 20px;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+}
+
+.roadmap-entry summary {
+  cursor: pointer;
+
+  padding: 22px 30px;
+
+  font-family: "IBM Plex Serif", serif;
+
+  font-size: 1.6em;
+
+  font-weight: 600;
+
+  color: #3f3a35;
+
+  list-style: none;
+
+  user-select: none;
+}
+
+.roadmap-entry summary::-webkit-details-marker {
+  display: none;
+}
+
+.roadmap-entry summary::after {
+  content: "+";
+
+  float: right;
+
+  font-family: "IBM Plex Sans", sans-serif;
+
+  font-size: 1.2em;
+}
+
+.roadmap-entry[open] summary::after {
+  content: "−";
+}
+
+.roadmap-entry summary:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.roadmap-content {
+  padding: 0 30px 30px;
+}
+
+.roadmap-item {
+  background: #f7f5f0;
+
+  padding: 20px 25px;
+
+  margin-top: 15px;
+
+  border-radius: 12px;
+}
+
+.roadmap-item:first-child {
+  margin-top: 0;
+}
+
+.roadmap-item h3 {
+  margin-top: 0;
+
+  margin-bottom: 8px;
+
+  color: #3f3a35;
+}
+
+.roadmap-item p {
+  margin-bottom: 0;
+}
+
+/* Roadmap Categories */
+
+.completed-entry {
+  background: #b8c4a9;
+}
+
+.progress-entry {
+  background: #c9ddf2;
+}
+
+.priority-entry {
+  background: #d9cbb8;
+}
+
+.backlog-entry {
+  background: #c9ddf2;
+}
+
+.future-entry {
+  background: #c9a89a;
+}
+
+/* Footer
+------------------------------------ */
+
+footer {
+  background: #d9cbb8;
+
+  color: #3f3a35;
+
+  text-align: center;
+
+  border-radius: 15px;
+
+  margin-bottom: 0;
+}
+
+footer .content-wrap {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+/* Responsive Layout
+------------------------------------ */
+
+@media screen and (max-width: 700px) {
+  body {
+    padding: 10px;
+  }
+
+  .site-container {
+    padding: 12px;
+  }
+
+  .content-wrap {
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  nav a {
+    display: block;
+
+    margin: 5px 0;
+  }
+
+  .page-links {
+    display: block;
+  }
+
+  .page-card {
+    display: block;
+
+    margin-bottom: 15px;
+  }
+}

@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>COMP 465 RTS | Documentation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header>
+        <div class="content-wrap">
+          <h1>Development Documentation</h1>
+
+          <p>
+            Documentation explaining the major systems implemented during each
+            RTS development cycle.
+          </p>
+        </div>
+      </header>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="documentation.html">Documentation</a>
+        <a href="project.html">Project Overview</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+
+      <main class="page-content">
+        <!-- October 19, 2026 -->
+        <details class="date-entry" open>
+          <summary>
+            October 19, 2026
+            <span class="date-description">Combat and Enemy AI</span>
+          </summary>
+
+          <div class="date-content">
+            <article class="feature">
+              <h3>Headquarters Quick Access</h3>
+
+              <p>
+                A quick-access button was added to the bottom HUD to provide
+                faster access to the player's Headquarters.
+              </p>
+
+              <p>
+                The first click searches the UnitSelectionManager for a
+                selectable building with the Headquarters building type and
+                makes it the active selection. If the Headquarters is already
+                the only selected object, clicking the button again centers the
+                RTS camera on it.
+              </p>
+
+              <p>
+                The RTSCameraController was updated with reusable focus methods,
+                allowing both the new UI button and the existing Space-key
+                behavior to use the same camera-centering logic.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Enemy Attack Routes</h3>
+
+              <p>
+                A predefined attack-route system was added to provide more
+                reliable long-distance enemy movement.
+              </p>
+
+              <p>
+                An EnemyAttackRoute contains child waypoint objects arranged in
+                Hierarchy order. EnemyRouteFollower moves a NavMeshAgent from
+                one waypoint to the next until the final destination is reached.
+              </p>
+
+              <p>
+                This allows the developer to manually determine the overall
+                strategic path while still allowing Unity's NavMesh system to
+                navigate around smaller obstacles between waypoints.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Enemy Vehicle Spawning</h3>
+
+              <p>
+                EnemySpawner was created to continuously generate enemy forces.
+              </p>
+
+              <p>
+                The Unity Inspector can be used to select the enemy building
+                prefab, vehicle prefab, building spawn location, vehicle spawn
+                location, attack route, and vehicle spawn interval.
+              </p>
+
+              <p>
+                When a vehicle is instantiated, the spawner finds its
+                EnemyRouteFollower component and assigns the configured attack
+                route.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Combat Unit System</h3>
+
+              <p>
+                A reusable CombatUnit component was created for both player and
+                enemy combat vehicles.
+              </p>
+
+              <p>
+                CombatUnit combines faction assignment, hostile target
+                detection, weapon timing, weapon damage, targeting range, and
+                optional turret rotation into a single component.
+              </p>
+
+              <p>
+                Units periodically search nearby colliders for objects with a
+                SelectableHealth and CombatUnit component. Targets are filtered
+                by faction, and the nearest hostile unit inside the configured
+                range is selected.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Health and Destruction</h3>
+
+              <p>
+                Combat uses the existing SelectableHealth component rather than
+                maintaining a separate combat health system.
+              </p>
+
+              <p>
+                Each weapon hit calls TakeDamage on the target. Vehicles with
+                Destroy On Death enabled are destroyed when their health reaches
+                zero and disappear from the battlefield.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Hitscan Tracers</h3>
+
+              <p>
+                A visible tracer was added to make automatic weapon fire easier
+                to identify during gameplay.
+              </p>
+
+              <p>
+                Damage is still applied immediately using a hitscan-style
+                system. A LineRenderer briefly displays a line between the
+                vehicle's FirePoint and the target when the weapon fires.
+              </p>
+
+              <p>
+                Tracer width and duration are Inspector-adjustable so future
+                weapons can use different visual characteristics.
+              </p>
+            </article>
+          </div>
+        </details>
+
+        <!-- October 14, 2026 -->
+        <details class="date-entry">
+          <summary>
+            October 14, 2026
+            <span class="date-description"
+              >Command and Production Refactor</span
+            >
+          </summary>
+
+          <div class="date-content">
+            <article class="feature">
+              <h3>Command System Refactor</h3>
+
+              <p>
+                The command interface was reorganized so the central
+                CommandPanelManager only manages the generic 3×4 command grid
+                and keyboard input.
+              </p>
+
+              <p>
+                Individual selectable objects now provide their own commands.
+                HumveeCommands, HDTCommands, FuelTruckCommands, and building
+                command scripts determine which commands appear for each
+                selection.
+              </p>
+
+              <p>
+                Shared functionality is provided by VehicleCommandsBase and
+                ProductionBuildingCommandsBase.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Reusable Vehicle Construction</h3>
+
+              <p>
+                VehicleConstruction was converted into a generic construction
+                component.
+              </p>
+
+              <p>
+                Individual vehicle command scripts now contain references to the
+                structures that vehicle is allowed to build. This prevents the
+                central command system from containing references to every
+                building in the game.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Building Production Queue</h3>
+
+              <p>
+                BuildingProductionQueue was created as a reusable production
+                system for Headquarters and other production buildings.
+              </p>
+
+              <p>
+                Each production option can define its prefab, production time,
+                manpower requirement, and physical resource costs. Resources and
+                manpower are reserved or spent when production is queued.
+              </p>
+
+              <p>
+                Completed units spawn at the configured production point and can
+                automatically move toward the building's rally point.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Selected Object Information</h3>
+
+              <p>
+                The bottom information panel was expanded to show reusable
+                selection information for units, buildings, resources, health,
+                cargo, and production.
+              </p>
+
+              <p>
+                Production buildings display the current item being built,
+                percentage completion, progress bar, and queued production
+                count.
+              </p>
+            </article>
+          </div>
+        </details>
+
+        <!-- October 8, 2026 -->
+        <details class="date-entry">
+          <summary>
+            October 8, 2026
+            <span class="date-description">Construction and Logistics</span>
+          </summary>
+
+          <div class="date-content">
+            <article class="feature">
+              <h3>Grid-Based Construction</h3>
+
+              <p>
+                A 10×10 world grid was added for structure placement.
+                GridManager converts world positions into grid coordinates,
+                snaps structures to cell centers, and tracks occupied and
+                reserved cells.
+              </p>
+
+              <p>
+                Building placement uses a ghost preview to show the intended
+                structure before construction begins. Valid and invalid
+                locations use different preview materials.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Vehicle Construction Orders</h3>
+
+              <p>
+                Buildings are constructed using player vehicles rather than
+                appearing immediately when placed.
+              </p>
+
+              <p>
+                A vehicle receives a Build command and moves toward the selected
+                construction location. Shift-click allows multiple construction
+                orders to be placed into the vehicle's command queue.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Warehouses and Physical Resources</h3>
+
+              <p>
+                Physical resource storage was moved into specialized warehouse
+                buildings.
+              </p>
+
+              <p>
+                Wood, Metal, Electronics, Fuel, Water, and Food can each be
+                stored in warehouses configured for that resource type.
+                Warehouse capacities and starting quantities are adjustable in
+                the Inspector.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Vehicle Cargo</h3>
+
+              <p>
+                VehicleCargo allows logistics vehicles to physically transport
+                resources between resource nodes and warehouses.
+              </p>
+
+              <p>
+                Vehicles can be configured to carry all resources or only a
+                selected set of resources. Capacity is also configurable by
+                vehicle type.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Logistics Routes</h3>
+
+              <p>
+                Persistent vehicle routes were added for repeated logistics
+                operations.
+              </p>
+
+              <p>
+                Route creation allows the player to create waypoint paths that
+                can include resource nodes and warehouse transfer points. Route
+                markers remain associated with the vehicle and can be hidden
+                when the vehicle is not selected.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Resource Interface</h3>
+
+              <p>
+                The top HUD was expanded to display Money and the total amount
+                of each physical resource currently owned.
+              </p>
+
+              <p>
+                Physical totals include both resources currently stored in
+                warehouses and resources currently being transported by
+                vehicles. Hover information provides a breakdown of where each
+                resource is located.
+              </p>
+            </article>
+          </div>
+        </details>
+
+        <!-- September 21, 2026 -->
+        <details class="date-entry">
+          <summary>
+            September 21, 2026
+            <span class="date-description">Initial RTS Systems</span>
+          </summary>
+
+          <div class="date-content">
+            <article class="feature">
+              <h3>RTS Camera</h3>
+
+              <p>
+                The project began with an RTS-style camera supporting arrow-key
+                movement, screen-edge scrolling, mouse-wheel zoom, and camera
+                focusing on selected units.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>NavMesh Vehicle Movement</h3>
+
+              <p>
+                Unity's NavMesh system was added to provide basic vehicle
+                pathfinding across the RTS map.
+              </p>
+
+              <p>
+                The first controllable vehicle was a Truck using a NavMeshAgent
+                for movement.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Unit Selection</h3>
+
+              <p>
+                UnitSelectionManager and UnitSelectionBox were created to
+                support both individual click selection and traditional RTS
+                drag-box selection.
+              </p>
+
+              <p>
+                Selectable objects use selection indicators that appear when the
+                object is selected and disappear when deselected.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Headquarters</h3>
+
+              <p>
+                The Headquarters was introduced as the first selectable player
+                building.
+              </p>
+
+              <p>
+                Early production functionality allowed the Headquarters to
+                produce Trucks and send newly created vehicles toward a rally
+                point.
+              </p>
+            </article>
+
+            <article class="feature">
+              <h3>Command Panel</h3>
+
+              <p>
+                A Warcraft-style 3×4 command grid was created using the QWER,
+                ASDF, and ZXCV keyboard layout.
+              </p>
+
+              <p>
+                This interface became the foundation for the later dynamic
+                command system used by individual vehicles and buildings.
+              </p>
+            </article>
+          </div>
+        </details>
+      </main>
+
+      <footer>
+        <div class="content-wrap">
+          <p>COMP 465 RTS Development Project</p>
+          <p>Copyright 2026 by Tim K.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

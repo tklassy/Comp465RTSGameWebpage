@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>COMP 465 RTS | Project Overview</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Serif:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header>
+        <div class="content-wrap">
+          <h1>Project Overview</h1>
+
+          <p>
+            An overview of the design and major systems of the COMP 465
+            real-time strategy game.
+          </p>
+        </div>
+      </header>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="documentation.html">Documentation</a>
+        <a href="project.html">Project Overview</a>
+        <a href="roadmap.html">Roadmap</a>
+      </nav>
+
+      <main>
+        <section class="project-section">
+          <div class="content-wrap">
+            <h2>Game Concept</h2>
+
+            <p>
+              The project is a modern military real-time strategy game developed
+              in Unity. The game combines traditional RTS base building and unit
+              control with a larger emphasis on logistics, transportation, and
+              resource movement.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section alternate">
+          <div class="content-wrap">
+            <h2>Vehicle Control</h2>
+
+            <p>
+              Vehicles are the primary controllable units. The player can select
+              individual vehicles or groups, issue movement commands, establish
+              routes, construct buildings, and eventually issue direct combat
+              orders.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="content-wrap">
+            <h2>Base Building</h2>
+
+            <p>
+              Buildings are placed on a grid using vehicle-based construction.
+              Current structures include the Headquarters, Barracks, production
+              buildings, maintenance facilities, and specialized resource
+              warehouses.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section alternate">
+          <div class="content-wrap">
+            <h2>Resources and Logistics</h2>
+
+            <p>
+              The economy currently includes Money, Food, Water, Fuel, Wood,
+              Metal, and Electronics. Physical resources can be stored in
+              specialized warehouses and transported by cargo vehicles.
+            </p>
+
+            <p>
+              The long-term goal is for logistics to directly support
+              construction, production, and combat operations.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="content-wrap">
+            <h2>Production</h2>
+
+            <p>
+              Production buildings use reusable production queues. Individual
+              units can require resources, manpower capacity, and construction
+              time before they are spawned.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section alternate">
+          <div class="content-wrap">
+            <h2>Combat</h2>
+
+            <p>
+              Combat vehicles can detect hostile units, rotate toward targets,
+              fire weapons, deal damage, and destroy enemy vehicles.
+            </p>
+
+            <p>
+              Enemy forces can be spawned continuously and directed toward the
+              player's base using predefined waypoint routes.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="content-wrap">
+            <h2>Planned Features</h2>
+
+            <ul>
+              <li>Dedicated tanks and additional combat vehicles</li>
+              <li>Player attack and attack-move commands</li>
+              <li>Improved muzzle flashes and weapon effects</li>
+              <li>Enemy buildings and expanded enemy AI</li>
+              <li>Construction sites requiring delivered resources</li>
+              <li>Additional logistics systems</li>
+              <li>Minimap</li>
+              <li>Building and unit upgrades</li>
+              <li>Aircraft and helicopters</li>
+              <li>Import and export systems</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="content-wrap">
+          <p>COMP 465 RTS Development Project</p>
+          <p>Copyright 2026 by Tim K.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
