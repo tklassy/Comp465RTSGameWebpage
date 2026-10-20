@@ -15,6 +15,58 @@
     />
 
     <link rel="stylesheet" href="css/styles.css" />
+
+    <style>
+      .change-entry {
+        background: #f7f5f0;
+        margin-top: 15px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .change-entry:first-child {
+        margin-top: 0;
+      }
+
+      .date-entry .change-entry > summary {
+        padding: 18px 20px;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 1.05em;
+        font-weight: 600;
+        color: #3f3a35;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .date-entry .change-entry > summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .date-entry .change-entry > summary::after {
+        content: "+";
+        float: right;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 1.1em;
+        font-weight: 600;
+      }
+
+      .date-entry .change-entry[open] > summary::after {
+        content: "−";
+      }
+
+      .date-entry .change-entry > summary:hover {
+        background: rgba(201, 221, 242, 0.3);
+      }
+
+      .change-documentation {
+        padding: 0 20px 20px;
+        line-height: 1.7;
+      }
+
+      .change-documentation p:last-child {
+        margin-bottom: 0;
+      }
+    </style>
   </head>
 
   <body>
@@ -25,70 +77,407 @@
 
           <p>
             A chronological record of features, fixes, and changes made during
-            development of the COMP 465 RTS project.
+            development of the COMP 465 RTS project. Individual changes can be
+            expanded to view their implementation documentation.
           </p>
         </div>
       </header>
 
       <nav>
         <a href="index.html">Home</a>
-        <a href="changelog.html">Changelog</a>
-        <a href="documentation.html">Documentation</a>
         <a href="project.html">Project Overview</a>
         <a href="roadmap.html">Roadmap</a>
+        <a href="changelog.html">Changelog</a>
       </nav>
 
       <main class="page-content">
+        <!-- October 20, 2026 -->
+        <details class="date-entry">
+          <summary>
+            October 20, 2026
+            <span class="date-description">
+              Health, Factions, Destruction, and Enemy Base Updates
+            </span>
+          </summary>
+
+          <div class="date-content">
+            <details class="change-entry">
+              <summary>Added World-Space Health Bars</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Vehicles and buildings now use reusable world-space health
+                  bars connected to SelectableHealth.
+                </p>
+
+                <p>
+                  Health bars remain hidden while an object is at full health
+                  and automatically appear after the object takes damage. The
+                  remaining health is displayed in green while missing health is
+                  displayed in red.
+                </p>
+
+                <p>
+                  The bars use a World Space Canvas and remain horizontally
+                  aligned with the camera so they are readable throughout the
+                  battlefield.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Updated Selected Object Health Display</summary>
+
+              <div class="change-documentation">
+                <p>
+                  The SelectedInfoPanel health display was updated to use the
+                  same red and green health representation as the world-space
+                  health bars.
+                </p>
+
+                <p>
+                  The green health image now changes width using RectTransform
+                  anchors instead of Unity's Filled Image mode. This allows the
+                  cleaner UISprite using the Simple image type to be retained.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Updated Production Progress Bar</summary>
+
+              <div class="change-documentation">
+                <p>
+                  The production progress bar now uses the same anchor-based
+                  resizing approach as the health interface.
+                </p>
+
+                <p>
+                  This allows the production fill to use a Simple UISprite
+                  instead of changing back to Unity's Filled image type during
+                  runtime.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Moved Faction Ownership to SelectableUnit</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Faction ownership was moved out of CombatUnit and into
+                  SelectableUnit.
+                </p>
+
+                <p>
+                  Every selectable object can now be assigned to the Player,
+                  Enemy, or Neutral faction regardless of whether that object
+                  has combat capabilities.
+                </p>
+
+                <p>
+                  This separates ownership from combat behavior. CombatUnit now
+                  represents whether an object can fight, while SelectableUnit
+                  determines who owns the object.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Enemy and Neutral Selection Rules</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Enemy and Neutral objects can now be selected and inspected by
+                  the player without becoming controllable.
+                </p>
+
+                <p>
+                  CommandPanelManager prevents non-player objects from exposing
+                  player commands, while UnitCommandManager filters movement,
+                  logistics, and route commands so only Player-owned vehicles
+                  respond.
+                </p>
+
+                <p>
+                  Resource nodes can therefore remain Neutral, enemy vehicles
+                  can be inspected, and enemy buildings can use the same
+                  selection system as player structures.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Expanded Combat Targeting to Buildings</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Combat targeting no longer requires the target to also have a
+                  CombatUnit component.
+                </p>
+
+                <p>
+                  A valid target now uses SelectableHealth and SelectableUnit.
+                  CombatUnit checks the faction stored on SelectableUnit to
+                  determine whether the object is hostile.
+                </p>
+
+                <p>
+                  This allows enemy vehicles to attack Player-owned buildings
+                  without giving every building a weapon or CombatUnit
+                  component.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Manpower Release When Units Are Destroyed</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Produced units now receive manpower tracking when production
+                  completes.
+                </p>
+
+                <p>
+                  When one of those units is destroyed, its manpower cost is
+                  removed from manpowerUsed. This returns the consumed manpower
+                  capacity to the player.
+                </p>
+
+                <p>
+                  Enemy-spawned units do not use the Player manpower system
+                  because they are not registered through the Player production
+                  queue.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>
+                Updated Barracks Destruction and Manpower Capacity
+              </summary>
+
+              <div class="change-documentation">
+                <p>
+                  Barracks now remove their manpower-cap increase when they are
+                  destroyed.
+                </p>
+
+                <p>
+                  ResourceManager was also updated so the manpower cap can fall
+                  below currently used manpower. Existing units remain alive,
+                  but additional production is blocked until manpower usage
+                  falls back below the available capacity.
+                </p>
+
+                <p>
+                  For example, destroying a Barracks while using 22 manpower can
+                  immediately change the display from 22 / 22 to 22 / 12.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Verified Resource Cleanup on Destruction</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Destruction behavior was tested for both cargo vehicles and
+                  resource warehouses.
+                </p>
+
+                <p>
+                  Resources carried by a destroyed vehicle are automatically
+                  removed from the top bar's In Transit total because the
+                  VehicleCargo object no longer exists.
+                </p>
+
+                <p>
+                  Resources stored inside a destroyed warehouse are likewise
+                  removed from the Stored resource totals.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>
+                Converted Enemy Spawner Into a Destructible Building
+              </summary>
+
+              <div class="change-documentation">
+                <p>
+                  EnemySpawner was moved onto the enemy production building
+                  itself instead of existing as a separate object that creates a
+                  building.
+                </p>
+
+                <p>
+                  The building continuously produces enemy vehicles and assigns
+                  them to the configured EnemyAttackRoute.
+                </p>
+
+                <p>
+                  When the building reaches zero health, spawning stops. If
+                  Destroy On Death is enabled, destroying the building also
+                  destroys the EnemySpawner component with it. Enemy vehicles
+                  that were already created continue following their assigned
+                  attack route.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Updated Weapon Tracer Material</summary>
+
+              <div class="change-documentation">
+                <p>
+                  The combat tracer was updated to use a compatible Universal
+                  Render Pipeline material.
+                </p>
+
+                <p>
+                  The corrected material prevents the LineRenderer from
+                  appearing magenta when its shader is unsupported. The current
+                  weapon tracer is displayed in yellow.
+                </p>
+              </div>
+            </details>
+          </div>
+        </details>
+
         <!-- October 19, 2026 -->
-        <details class="date-entry" open>
+        <details class="date-entry">
           <summary>
             October 19, 2026
             <span class="date-description">Combat and Enemy AI</span>
           </summary>
 
           <div class="date-content">
-            <ul class="change-list">
-              <li>
-                Added an HQ quick-access button that selects the player's
-                Headquarters and centers the camera when clicked again.
-              </li>
+            <details class="change-entry">
+              <summary>Added Headquarters Quick Access</summary>
 
-              <li>
-                Added reusable camera focus functions so UI controls and the
-                existing Space-key camera behavior can use the same system.
-              </li>
+              <div class="change-documentation">
+                <p>
+                  A quick-access button was added to the bottom HUD to provide
+                  faster access to the player's Headquarters.
+                </p>
 
-              <li>
-                Added predefined enemy attack routes using manually placed
-                waypoints and NavMesh movement between each route point.
-              </li>
+                <p>
+                  The first click searches UnitSelectionManager for a selectable
+                  Headquarters and makes it the active selection. If the
+                  Headquarters is already the only selected object, clicking the
+                  button again centers the RTS camera on it.
+                </p>
 
-              <li>
-                Added an Inspector-configurable enemy spawner for selecting the
-                enemy building prefab, vehicle prefab, attack route, and vehicle
-                spawn interval.
-              </li>
+                <p>
+                  RTSCameraController was updated with reusable focus methods so
+                  both UI buttons and the existing Space-key behavior can use
+                  the same camera-centering system.
+                </p>
+              </div>
+            </details>
 
-              <li>
-                Added a reusable CombatUnit system that handles factions,
-                hostile target detection, weapon damage, firing intervals, and
-                optional turret rotation.
-              </li>
+            <details class="change-entry">
+              <summary>Added Enemy Attack Routes</summary>
 
-              <li>
-                Connected combat damage to the existing SelectableHealth system.
-              </li>
+              <div class="change-documentation">
+                <p>
+                  A predefined enemy attack-route system was added to provide
+                  reliable long-distance enemy movement.
+                </p>
 
-              <li>
-                Enabled combat vehicles to disappear when their health reaches
-                zero using Destroy On Death.
-              </li>
+                <p>
+                  EnemyAttackRoute reads child waypoint objects in Hierarchy
+                  order. EnemyRouteFollower then moves a NavMeshAgent from one
+                  waypoint to the next until the route is complete.
+                </p>
 
-              <li>
-                Added visible LineRenderer hitscan tracers between weapon fire
-                points and targets.
-              </li>
-            </ul>
+                <p>
+                  This allows the overall strategic path to be manually defined
+                  while still allowing NavMesh to handle smaller navigation
+                  decisions between route points.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Enemy Vehicle Spawning</summary>
+
+              <div class="change-documentation">
+                <p>
+                  EnemySpawner was introduced to continuously generate enemy
+                  vehicle forces at a configurable interval.
+                </p>
+
+                <p>
+                  When a vehicle is instantiated, the spawner finds its
+                  EnemyRouteFollower and assigns the configured
+                  EnemyAttackRoute.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added the CombatUnit System</summary>
+
+              <div class="change-documentation">
+                <p>
+                  CombatUnit was created as a reusable combat component for
+                  armed units.
+                </p>
+
+                <p>
+                  It handles hostile target detection, weapon timing, damage,
+                  targeting range, optional turret rotation, and weapon tracer
+                  display.
+                </p>
+
+                <p>
+                  Units periodically search nearby colliders and select the
+                  closest valid hostile target within range.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Connected Combat to SelectableHealth</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Combat uses the existing SelectableHealth component rather
+                  than maintaining a separate combat health system.
+                </p>
+
+                <p>
+                  Weapon attacks call TakeDamage on the target. Objects with
+                  Destroy On Death enabled are destroyed when their health
+                  reaches zero.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Weapon Tracers</summary>
+
+              <div class="change-documentation">
+                <p>
+                  A LineRenderer tracer was added to make automatic weapon fire
+                  easier to identify.
+                </p>
+
+                <p>
+                  Damage is applied immediately to the selected target while the
+                  LineRenderer briefly displays the path between the weapon's
+                  FirePoint and the target.
+                </p>
+
+                <p>
+                  Tracer width and duration are Inspector-adjustable so future
+                  weapons can use different visual characteristics.
+                </p>
+              </div>
+            </details>
           </div>
         </details>
 
@@ -96,57 +485,108 @@
         <details class="date-entry">
           <summary>
             October 14, 2026
-            <span class="date-description"
-              >Command and Production Refactor</span
-            >
+            <span class="date-description">
+              Command and Production Refactor
+            </span>
           </summary>
 
           <div class="date-content">
-            <ul class="change-list">
-              <li>
-                Reworked the command system so the CommandPanelManager only
-                manages the shared 3×4 command panel.
-              </li>
+            <details class="change-entry">
+              <summary>Refactored the Command System</summary>
 
-              <li>
-                Added unit-specific command components such as HumveeCommands,
-                HDTCommands, FuelTruckCommands, and production-building command
-                scripts.
-              </li>
+              <div class="change-documentation">
+                <p>
+                  CommandPanelManager was reorganized so the central manager
+                  only handles the shared 3×4 command grid and keyboard input.
+                </p>
 
-              <li>
-                Added reusable VehicleCommandsBase and
-                ProductionBuildingCommandsBase classes.
-              </li>
+                <p>
+                  Individual selectable objects provide their own available
+                  commands through components such as HumveeCommands,
+                  HDTCommands, FuelTruckCommands, and production-building
+                  command scripts.
+                </p>
 
-              <li>
-                Refactored VehicleConstruction into a reusable construction
-                component instead of storing individual building prefabs in the
-                central command manager.
-              </li>
+                <p>
+                  Shared behavior is provided through VehicleCommandsBase and
+                  ProductionBuildingCommandsBase.
+                </p>
+              </div>
+            </details>
 
-              <li>
-                Added a reusable BuildingProductionQueue with production time,
-                manpower requirements, and physical resource costs.
-              </li>
+            <details class="change-entry">
+              <summary>Added Reusable Vehicle Construction</summary>
 
-              <li>Added rally-point support to production buildings.</li>
+              <div class="change-documentation">
+                <p>
+                  VehicleConstruction was converted into a generic reusable
+                  construction component.
+                </p>
 
-              <li>
-                Added production progress and queue information to the selected
-                object information panel.
-              </li>
+                <p>
+                  Individual vehicle command scripts now contain references to
+                  the structures that vehicle is permitted to construct. This
+                  prevents the central command system from containing references
+                  to every building in the game.
+                </p>
+              </div>
+            </details>
 
-              <li>
-                Added SelectableInfoData and SelectableHealth components for
-                reusable unit and building information.
-              </li>
+            <details class="change-entry">
+              <summary>Added BuildingProductionQueue</summary>
 
-              <li>
-                Removed obsolete individual production wrapper scripts after
-                converting production buildings to the reusable queue system.
-              </li>
-            </ul>
+              <div class="change-documentation">
+                <p>
+                  BuildingProductionQueue was created as a reusable production
+                  system for Headquarters and other production buildings.
+                </p>
+
+                <p>
+                  Each production option can define its prefab, production time,
+                  manpower requirement, and physical resource costs. Resources
+                  and manpower are reserved or spent when production is queued.
+                </p>
+
+                <p>
+                  Completed units spawn at the configured production point and
+                  can automatically move toward the building's rally point.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Expanded Selected Object Information</summary>
+
+              <div class="change-documentation">
+                <p>
+                  The bottom information panel was expanded to display reusable
+                  information for vehicles, buildings, resources, health, cargo,
+                  and production.
+                </p>
+
+                <p>
+                  Production buildings display the item currently being built,
+                  percentage completion, progress, and queued production count.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Reusable Selection Data and Health</summary>
+
+              <div class="change-documentation">
+                <p>
+                  SelectableInfoData and SelectableHealth were added as reusable
+                  components for selectable game objects.
+                </p>
+
+                <p>
+                  These systems provide common display information and health
+                  behavior without requiring each unit or building type to
+                  implement its own version.
+                </p>
+              </div>
+            </details>
           </div>
         </details>
 
@@ -158,65 +598,176 @@
           </summary>
 
           <div class="date-content">
-            <ul class="change-list">
-              <li>
-                Added a 10×10 world grid for building placement and grid-cell
-                occupancy tracking.
-              </li>
+            <details class="change-entry">
+              <summary>Added Grid-Based Construction</summary>
 
-              <li>
-                Added building ghost previews with valid and invalid placement
-                feedback.
-              </li>
+              <div class="change-documentation">
+                <p>
+                  A 10×10 world grid was added for structure placement.
+                  GridManager converts world positions into grid coordinates,
+                  snaps structures to cell centers, and tracks occupied and
+                  reserved cells.
+                </p>
 
-              <li>
-                Added vehicle-based construction where the selected vehicle
-                drives to the construction location before completing the
-                building.
-              </li>
+                <p>
+                  Building placement uses a ghost preview before construction.
+                  Valid and invalid positions use different preview materials.
+                </p>
+              </div>
+            </details>
 
-              <li>
-                Added queued construction orders using Shift-click placement.
-              </li>
+            <details class="change-entry">
+              <summary>Added Vehicle Construction Orders</summary>
 
-              <li>
-                Added NavMeshObstacle carving to completed buildings while
-                keeping placement ghosts non-blocking.
-              </li>
+              <div class="change-documentation">
+                <p>
+                  Buildings are constructed using Player vehicles instead of
+                  appearing immediately after placement.
+                </p>
 
-              <li>
-                Added specialized resource warehouses for Wood, Metal,
-                Electronics, Fuel, Water, and Food.
-              </li>
+                <p>
+                  A vehicle receives a construction order and moves toward the
+                  selected build location. Shift-based placement allows
+                  additional construction orders to be queued.
+                </p>
+              </div>
+            </details>
 
-              <li>
-                Added physical vehicle cargo and warehouse transfer points.
-              </li>
+            <details class="change-entry">
+              <summary>Added NavMeshObstacle Building Carving</summary>
 
-              <li>
-                Added persistent vehicle logistics routes with visible route
-                markers.
-              </li>
+              <div class="change-documentation">
+                <p>
+                  Completed buildings use NavMeshObstacle carving so vehicles
+                  navigate around finished structures.
+                </p>
 
-              <li>
-                Added physical resource nodes that vehicles can load resources
-                from.
-              </li>
+                <p>
+                  Placement ghosts keep their obstacles disabled so temporary
+                  previews do not block navigation.
+                </p>
+              </div>
+            </details>
 
-              <li>
-                Added the top resource display showing stored and in-transit
-                physical resources.
-              </li>
+            <details class="change-entry">
+              <summary>Added Specialized Resource Warehouses</summary>
 
-              <li>
-                Added resource hover information showing where stored and
-                transported resources are currently located.
-              </li>
+              <div class="change-documentation">
+                <p>
+                  Physical resource storage was moved into specialized warehouse
+                  buildings.
+                </p>
 
-              <li>
-                Added manpower capacity and Barracks-based manpower expansion.
-              </li>
-            </ul>
+                <p>
+                  Wood, Metal, Electronics, Fuel, Water, and Food can each be
+                  stored in warehouses configured for that resource type.
+                  Warehouse capacity and starting amounts are configurable.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Vehicle Cargo</summary>
+
+              <div class="change-documentation">
+                <p>
+                  VehicleCargo allows logistics vehicles to physically transport
+                  resources between resource nodes and warehouses.
+                </p>
+
+                <p>
+                  Vehicles can be configured to carry all resources or only
+                  selected resource types, with cargo capacity adjustable by
+                  vehicle.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Warehouse Transfer Points</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Warehouse Shipping and Receiving points provide destinations
+                  for logistics vehicles to transfer physical resources.
+                </p>
+
+                <p>
+                  Cargo compatibility and warehouse resource types determine
+                  which resources can be transferred.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Persistent Logistics Routes</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Persistent vehicle routes were added for repeated logistics
+                  operations.
+                </p>
+
+                <p>
+                  Routes can contain road waypoints, resource nodes, and
+                  warehouse transfer points. Route markers remain associated
+                  with the vehicle and can be shown when it is selected.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Physical Resource Nodes</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Resource nodes provide physical materials that logistics
+                  vehicles can collect.
+                </p>
+
+                <p>
+                  Resource type, amount, capacity, refill behavior, and route
+                  stop position can be configured for each node.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Resource Top Bar and Hover Breakdown</summary>
+
+              <div class="change-documentation">
+                <p>
+                  The top HUD displays Money and the total amount of each
+                  physical resource currently owned.
+                </p>
+
+                <p>
+                  Physical totals include resources stored in warehouses and
+                  resources currently being transported by vehicles.
+                </p>
+
+                <p>
+                  Hover information provides a breakdown of the warehouses and
+                  vehicles currently holding each resource.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Manpower Capacity</summary>
+
+              <div class="change-documentation">
+                <p>
+                  A manpower system was added to limit the number of units the
+                  Player can field.
+                </p>
+
+                <p>
+                  Production options can require manpower, and structures such
+                  as the Barracks increase the available manpower cap.
+                </p>
+              </div>
+            </details>
           </div>
         </details>
 
@@ -228,45 +779,93 @@
           </summary>
 
           <div class="date-content">
-            <ul class="change-list">
-              <li>
-                Created the initial COMP 465 RTS Unity project and playable
-                scene.
-              </li>
+            <details class="change-entry">
+              <summary>Created the Initial RTS Project and Scene</summary>
 
-              <li>
-                Added RTS camera movement using arrow keys and screen-edge
-                scrolling.
-              </li>
+              <div class="change-documentation">
+                <p>
+                  The initial COMP 465 RTS Unity project and playable scene were
+                  created as the foundation for the game.
+                </p>
+              </div>
+            </details>
 
-              <li>
-                Added camera zoom and Space-key camera focusing on selected
-                units.
-              </li>
+            <details class="change-entry">
+              <summary>Added the RTS Camera</summary>
 
-              <li>Added a baked NavMesh for vehicle movement.</li>
+              <div class="change-documentation">
+                <p>
+                  The RTS camera supports arrow-key movement, screen-edge
+                  scrolling, mouse-wheel zoom, and focusing on selected units.
+                </p>
+              </div>
+            </details>
 
-              <li>Added the first controllable Truck vehicle.</li>
+            <details class="change-entry">
+              <summary>Added NavMesh Vehicle Movement</summary>
 
-              <li>Added single-click and drag-box unit selection.</li>
+              <div class="change-documentation">
+                <p>
+                  Unity's NavMesh system was added to provide basic vehicle
+                  pathfinding across the RTS map.
+                </p>
 
-              <li>
-                Added visual selection indicators for selected units and
-                buildings.
-              </li>
+                <p>
+                  The first controllable vehicle used a NavMeshAgent to move to
+                  Player-issued destinations.
+                </p>
+              </div>
+            </details>
 
-              <li>Added the Headquarters as the first selectable building.</li>
+            <details class="change-entry">
+              <summary>Added RTS Unit Selection</summary>
 
-              <li>
-                Added early Headquarters vehicle production and rally-point
-                functionality.
-              </li>
+              <div class="change-documentation">
+                <p>
+                  UnitSelectionManager and UnitSelectionBox were created to
+                  support both individual click selection and traditional RTS
+                  drag-box selection.
+                </p>
 
-              <li>
-                Added the first fixed 3×4 RTS command panel using QWER, ASDF,
-                and ZXCV hotkeys.
-              </li>
-            </ul>
+                <p>
+                  Selectable objects use visual selection indicators that appear
+                  when selected and disappear when deselected.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added the Headquarters</summary>
+
+              <div class="change-documentation">
+                <p>
+                  The Headquarters was introduced as the first selectable Player
+                  building.
+                </p>
+
+                <p>
+                  Early production functionality allowed the Headquarters to
+                  create vehicles and send newly produced units toward a rally
+                  point.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added the 3×4 Command Panel</summary>
+
+              <div class="change-documentation">
+                <p>
+                  A Warcraft-style 3×4 command grid was created using the QWER,
+                  ASDF, and ZXCV keyboard layout.
+                </p>
+
+                <p>
+                  This interface became the foundation for the later dynamic
+                  command system used by vehicles and buildings.
+                </p>
+              </div>
+            </details>
           </div>
         </details>
       </main>

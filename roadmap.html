@@ -29,276 +29,35 @@
             <br />
             Tim K.
             <br />
-            Initial Roadmap: October 6, 2026
+            Roadmap Created: October 6, 2026
           </p>
         </div>
       </header>
 
       <nav>
         <a href="index.html">Home</a>
-        <a href="changelog.html">Changelog</a>
-        <a href="documentation.html">Documentation</a>
         <a href="project.html">Project Overview</a>
         <a href="roadmap.html">Roadmap</a>
+        <a href="changelog.html">Changelog</a>
       </nav>
 
       <main class="page-content">
-        <!-- Completed -->
-        <details class="roadmap-entry completed-entry">
-          <summary>
-            Completed
-            <span class="date-description">
-              Systems that are currently implemented and working
-            </span>
-          </summary>
-
-          <div class="roadmap-content">
-            <div class="roadmap-item completed">
-              <h3>Vehicle Cargo System</h3>
-
-              <p>
-                Vehicles can carry physical resources using the reusable
-                VehicleCargo system.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Load / Unload System</h3>
-
-              <p>
-                Vehicles can collect resources and transfer them through
-                warehouse Shipping and Receiving points.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Resource Nodes</h3>
-
-              <p>
-                Physical resource nodes provide resources for logistics vehicles
-                to collect.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Warehouses</h3>
-
-              <p>
-                Specialized warehouses store individual physical resource types.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Basic Resource Collection Loop</h3>
-
-              <p>
-                Vehicles can travel to a resource node, collect resources,
-                return to a warehouse, unload, and repeat the route.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Logistics Routes</h3>
-
-              <p>
-                Persistent vehicle routes support repeated resource collection
-                and delivery operations.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Additional Resource Types</h3>
-
-              <p>
-                The current economy includes Money, Food, Water, Fuel, Wood,
-                Metal, and Electronics.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Selection and Information Panel</h3>
-
-              <p>
-                Selected vehicles, buildings, warehouses, and resource nodes
-                display relevant information in the bottom HUD.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Building Placement</h3>
-
-              <p>
-                Buildings use a grid-based placement system with ghost previews,
-                placement validation, and vehicle construction orders.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Production Queue</h3>
-
-              <p>
-                Production buildings can queue units using configurable build
-                times, manpower requirements, and resource costs.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Manpower System</h3>
-
-              <p>
-                Units consume manpower capacity, while buildings such as the
-                Barracks can increase the available manpower cap.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Enemy Attack Routes</h3>
-
-              <p>
-                Enemy vehicles can follow predefined waypoint routes using
-                NavMesh movement between each waypoint.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Enemy Vehicle Spawning</h3>
-
-              <p>
-                Enemy bases can continuously spawn configurable vehicle prefabs
-                at an adjustable interval.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Basic Vehicle Combat</h3>
-
-              <p>
-                Player and enemy combat vehicles can automatically detect
-                hostile units, fire weapons, deal damage, and destroy targets.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Hitscan Tracers</h3>
-
-              <p>
-                Vehicle weapon fire can display a short LineRenderer tracer
-                between the weapon muzzle and target.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>HQ Quick Access</h3>
-
-              <p>
-                A HUD button can select the Headquarters and center the camera
-                on it when clicked again.
-              </p>
-            </div>
-
-            <div class="roadmap-item completed">
-              <h3>Development Website</h3>
-
-              <p>
-                A project website now provides a homepage, changelog,
-                documentation, project overview, and roadmap.
-              </p>
-            </div>
-          </div>
-        </details>
-
-        <!-- In Progress -->
-        <details class="roadmap-entry progress-entry" open>
-          <summary>
-            In Progress
-            <span class="date-description">
-              Systems currently being developed or expanded
-            </span>
-          </summary>
-
-          <div class="roadmap-content">
-            <div class="roadmap-item progress">
-              <h3>Combat and Enemy Attacks</h3>
-
-              <p>
-                The basic combat loop is operational. Development will continue
-                with dedicated combat vehicles, better enemy behavior, player
-                attack commands, visual effects, and base attacks.
-              </p>
-            </div>
-
-            <div class="roadmap-item progress">
-              <h3>More Vehicles and Buildings</h3>
-
-              <p>
-                Continue expanding the current vehicle and building roster with
-                dedicated military and logistics units.
-              </p>
-            </div>
-
-            <div class="roadmap-item progress">
-              <h3>UI Scaling and Layout</h3>
-
-              <p>
-                Continue refining HUD scaling, anchors, percentage-based panel
-                sizing, and screen-resolution support.
-              </p>
-            </div>
-
-            <div class="roadmap-item progress">
-              <h3>Asset Updates</h3>
-
-              <p>
-                Continue replacing placeholder geometry with the current
-                low-poly environment and vehicle/building assets.
-              </p>
-            </div>
-          </div>
-        </details>
-
-        <!-- Next Priorities -->
+        <!-- To Do -->
         <details class="roadmap-entry priority-entry">
           <summary>
-            Next Priorities
+            To Do
             <span class="date-description">
-              Features planned for the next development cycles
+              Planned, unfinished, and future development work
             </span>
           </summary>
 
           <div class="roadmap-content">
             <div class="roadmap-item priority">
-              <h3>Combat Vehicles</h3>
+              <h3>Tank Combat Vehicle</h3>
 
               <p>
-                Add dedicated player and enemy tanks and expand vehicle weapon
-                statistics such as damage, range, fire rate, and health.
-              </p>
-            </div>
-
-            <div class="roadmap-item priority">
-              <h3>Attack Commands</h3>
-
-              <p>
-                Add direct Attack and Attack Move commands to player combat
-                vehicles.
-              </p>
-            </div>
-
-            <div class="roadmap-item priority">
-              <h3>Combat Effects</h3>
-
-              <p>
-                Add muzzle flashes, better tracers, explosions, and vehicle
-                destruction effects.
-              </p>
-            </div>
-
-            <div class="roadmap-item priority">
-              <h3>Enemy Base Behavior</h3>
-
-              <p>
-                Expand the current enemy spawner into a more complete enemy base
-                capable of continuously producing and sending attack forces.
+                Add dedicated Player and Enemy tanks with configurable health,
+                damage, targeting range, fire rate, and turret behavior.
               </p>
             </div>
 
@@ -312,12 +71,58 @@
             </div>
 
             <div class="roadmap-item priority">
-              <h3>Enable NavMesh for Built Roads</h3>
+              <h3>Attack Command</h3>
 
               <p>
-                Update the runtime navigation system so player-built roads,
-                bridges, and other traversable surfaces can affect NavMesh
-                movement.
+                Allow Player combat units to receive a direct order to attack a
+                selected hostile target.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Attack-Move Command</h3>
+
+              <p>
+                Allow combat vehicles to move toward a destination while
+                engaging hostile targets encountered along the way.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Combat Effects</h3>
+
+              <p>
+                Add muzzle flashes, impact effects, explosions, and vehicle or
+                building destruction effects.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Enemy Building Prefabs</h3>
+
+              <p>
+                Continue creating and configuring enemy-owned buildings using
+                the current faction, health, selection, and destruction systems.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Expanded Enemy Base Behavior</h3>
+
+              <p>
+                Expand the current destructible enemy production building into a
+                larger enemy base system with additional production buildings,
+                unit types, and attack behavior.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Advanced Enemy AI</h3>
+
+              <p>
+                Expand enemy behavior beyond fixed routes with multiple attack
+                routes, attack groups, target priorities, and more advanced
+                decision making.
               </p>
             </div>
 
@@ -325,174 +130,21 @@
               <h3>Minimap</h3>
 
               <p>
-                Add a minimap showing the terrain, player units, buildings,
+                Add a minimap showing terrain, Player units, buildings,
                 resources, and enemy contacts.
               </p>
             </div>
-          </div>
-        </details>
 
-        <!-- Logistics Backlog -->
-        <details class="roadmap-entry backlog-entry">
-          <summary>
-            Logistics and Economy Backlog
-            <span class="date-description">
-              Planned expansion of the logistics systems
-            </span>
-          </summary>
-
-          <div class="roadmap-content">
-            <div class="roadmap-item backlog">
-              <h3>Construction Sites</h3>
+            <div class="roadmap-item priority">
+              <h3>Enable NavMesh for Built Roads</h3>
 
               <p>
-                Replace instant final construction with temporary construction
-                sites that require delivered materials before completion.
+                Update runtime navigation so Player-built roads, bridges, and
+                other traversable surfaces can affect NavMesh movement.
               </p>
             </div>
 
-            <div class="roadmap-item backlog">
-              <h3>Construction Material Delivery</h3>
-
-              <p>
-                Allow trucks to automatically deliver only the amount of each
-                resource still required by a construction site.
-              </p>
-            </div>
-
-            <div class="roadmap-item backlog">
-              <h3>Construction Labor</h3>
-
-              <p>
-                Allow nearby vehicles to contribute construction progress, with
-                dedicated construction vehicles providing a speed bonus.
-              </p>
-            </div>
-
-            <div class="roadmap-item backlog">
-              <h3>Import / Export System</h3>
-
-              <p>
-                Expand the existing resource economy with Import and Export
-                Warehouses connected to Shipping and Receiving.
-              </p>
-            </div>
-
-            <div class="roadmap-item backlog">
-              <h3>Seven-Day Logistics Cycle</h3>
-
-              <p>
-                Process Headquarters orders and exports on a repeating seven-day
-                game-time schedule.
-              </p>
-            </div>
-
-            <div class="roadmap-item backlog">
-              <h3>Resource Tooltip Interaction</h3>
-
-              <p>
-                Allow individual warehouse and vehicle entries in resource
-                tooltips to focus the camera on that object.
-              </p>
-            </div>
-          </div>
-        </details>
-
-        <!-- UI Backlog -->
-        <details class="roadmap-entry backlog-entry">
-          <summary>
-            UI and Interface Backlog
-            <span class="date-description">
-              Planned interface improvements
-            </span>
-          </summary>
-
-          <div class="roadmap-content">
-            <div class="roadmap-item backlog">
-              <h3>Production Queue Visuals</h3>
-
-              <p>
-                Replace simple production queue text with visual queue boxes or
-                unit icons.
-              </p>
-            </div>
-
-            <div class="roadmap-item backlog">
-              <h3>Production Cost Display</h3>
-
-              <p>
-                Display build time, resource costs, and manpower requirements
-                for the selected production option.
-              </p>
-            </div>
-
-            <div class="roadmap-item backlog">
-              <h3>Main Menu</h3>
-
-              <p>
-                Add functionality to the existing Main Menu button and menu
-                section.
-              </p>
-            </div>
-
-            <div class="roadmap-item backlog">
-              <h3>Game Speed Controls</h3>
-
-              <p>
-                Add HUD controls for pause, normal speed, and accelerated game
-                speeds.
-              </p>
-            </div>
-          </div>
-        </details>
-
-        <!-- Future -->
-        <details class="roadmap-entry future-entry">
-          <summary>
-            Future Features
-            <span class="date-description">
-              Longer-term features and expansion ideas
-            </span>
-          </summary>
-
-          <div class="roadmap-content">
-            <div class="roadmap-item future">
-              <h3>Upgrades System</h3>
-
-              <p>
-                Add building and unit upgrades using progression levels such as
-                Level I, II, and III.
-              </p>
-            </div>
-
-            <div class="roadmap-item future">
-              <h3>Helicopters</h3>
-
-              <p>
-                Add aircraft using a separate movement system that does not rely
-                on the ground NavMesh.
-              </p>
-            </div>
-
-            <div class="roadmap-item future">
-              <h3>Additional Combat Units</h3>
-
-              <p>
-                Add tanks, armored vehicles, additional logistics vehicles, and
-                other military unit types.
-              </p>
-            </div>
-
-            <div class="roadmap-item future">
-              <h3>Advanced Enemy AI</h3>
-
-              <p>
-                Expand enemy behavior beyond fixed routes to include multiple
-                attack routes, target priorities, and different attack groups.
-              </p>
-            </div>
-
-            <div class="roadmap-item future">
+            <div class="roadmap-item priority">
               <h3>Road Navigation Preference</h3>
 
               <p>
@@ -501,21 +153,492 @@
               </p>
             </div>
 
-            <div class="roadmap-item future">
+            <div class="roadmap-item priority">
+              <h3>Construction Sites</h3>
+
+              <p>
+                Replace completed-building construction with temporary
+                construction sites that remain until construction requirements
+                are met.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Construction Material Delivery</h3>
+
+              <p>
+                Require physical resources to be delivered to construction sites
+                before buildings can be completed.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Automatic Material Requirements</h3>
+
+              <p>
+                Allow logistics vehicles to deliver only the amount of each
+                resource still required by a construction site.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Construction Labor</h3>
+
+              <p>
+                Allow nearby vehicles to contribute construction progress, with
+                dedicated construction vehicles providing a speed bonus.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Import / Export System</h3>
+
+              <p>
+                Expand the resource economy with Import and Export Warehouses
+                connected to Shipping and Receiving.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Seven-Day Logistics Cycle</h3>
+
+              <p>
+                Process Headquarters orders and exports on a repeating
+                seven-game-day schedule using the existing game-time system.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Resource Tooltip Interaction</h3>
+
+              <p>
+                Allow individual warehouse and vehicle entries in resource
+                tooltips to select or focus the camera on that object.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Production Queue Visuals</h3>
+
+              <p>
+                Replace the simple queue count with visual queue boxes or unit
+                icons showing upcoming production.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Production Cost Display</h3>
+
+              <p>
+                Display build time, physical resource costs, and manpower
+                requirements for available production options.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Main Menu</h3>
+
+              <p>
+                Add functionality to the existing Main Menu button and menu
+                section.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Game Speed Controls</h3>
+
+              <p>
+                Add HUD controls for pause, normal speed, and accelerated game
+                speeds.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>UI Scaling and Layout</h3>
+
+              <p>
+                Continue refining HUD scaling, anchors, panel sizing, and
+                support for different screen resolutions.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>More Vehicles and Buildings</h3>
+
+              <p>
+                Continue expanding the military and logistics vehicle roster and
+                adding additional functional buildings.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Asset Updates</h3>
+
+              <p>
+                Continue replacing primitive and placeholder geometry with
+                low-poly vehicle, building, and environment assets.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Upgrades System</h3>
+
+              <p>
+                Add building and unit upgrades using progression levels such as
+                Level I, II, and III.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Helicopters</h3>
+
+              <p>
+                Add aircraft using a separate movement system that does not rely
+                on the ground NavMesh.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Additional Combat Units</h3>
+
+              <p>
+                Add more armored vehicles and other military combat unit types.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
               <h3>Additional Map</h3>
 
               <p>
                 Create another playable map and continue work toward supporting
-                custom map or heightmap imports.
+                custom maps or heightmap imports.
               </p>
             </div>
 
-            <div class="roadmap-item future">
+            <div class="roadmap-item priority">
               <h3>Map Development</h3>
 
               <p>
                 Continue expanding terrain detail with roads, trees, hills,
                 bridges, resource areas, bases, and strategic routes.
+              </p>
+            </div>
+          </div>
+        </details>
+
+        <!-- Completed -->
+        <details class="roadmap-entry completed-entry">
+          <summary>
+            Completed
+            <span class="date-description">
+              Systems that are currently implemented and working
+            </span>
+          </summary>
+
+          <div class="roadmap-content">
+            <div class="roadmap-item completed">
+              <h3>RTS Camera</h3>
+
+              <p>
+                Camera movement supports arrow keys, edge scrolling, zooming,
+                and focusing on selected objects.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>NavMesh Vehicle Movement</h3>
+
+              <p>
+                Ground vehicles use Unity NavMesh navigation for movement across
+                the RTS map.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Unit Selection</h3>
+
+              <p>
+                Selectable objects support individual click selection,
+                drag-selection, and visible selection indicators.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Dynamic Command Panel</h3>
+
+              <p>
+                A reusable 3×4 QWER / ASDF / ZXCV command panel displays
+                commands based on the selected Player object.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Faction and Ownership System</h3>
+
+              <p>
+                Selectable objects can belong to the Player, Enemy, or Neutral
+                faction.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Enemy and Neutral Selection</h3>
+
+              <p>
+                Enemy and Neutral objects can be selected and inspected without
+                allowing the Player to control them.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Building Placement</h3>
+
+              <p>
+                Buildings use grid-based placement, ghost previews, placement
+                validation, and vehicle-based construction orders.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Production Queue</h3>
+
+              <p>
+                Production buildings can queue units using configurable build
+                times, resource costs, and manpower requirements.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Production Rally Points</h3>
+
+              <p>
+                Newly produced vehicles can automatically move toward a
+                configured rally point.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Vehicle Cargo System</h3>
+
+              <p>
+                Vehicles can physically carry configurable amounts and types of
+                physical resources.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Resource Nodes</h3>
+
+              <p>
+                Physical resource nodes provide resources for logistics vehicles
+                to collect.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Specialized Warehouses</h3>
+
+              <p>
+                Warehouses store individual physical resource types with
+                configurable capacities.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Warehouse Shipping and Receiving</h3>
+
+              <p>
+                Logistics vehicles can load and unload resources through
+                warehouse transfer points.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Persistent Logistics Routes</h3>
+
+              <p>
+                Vehicles can follow reusable logistics routes containing road
+                waypoints, resource nodes, and warehouse transfer points.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Resource Economy</h3>
+
+              <p>
+                The current economy includes Money, Food, Water, Fuel, Wood,
+                Metal, and Electronics.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Resource Top Bar</h3>
+
+              <p>
+                The HUD displays stored and in-transit physical resources along
+                with global Money.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Resource Hover Breakdown</h3>
+
+              <p>
+                Resource tooltips show which warehouses and vehicles currently
+                contain each resource.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Manpower System</h3>
+
+              <p>
+                Units consume manpower capacity when produced and return their
+                manpower when destroyed.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Barracks Manpower Capacity</h3>
+
+              <p>
+                Barracks increase the manpower cap and remove that capacity when
+                destroyed.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Over-Cap Manpower Handling</h3>
+
+              <p>
+                The manpower cap can fall below current usage without destroying
+                units, while additional production remains blocked.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Selected Object Information Panel</h3>
+
+              <p>
+                Vehicles, buildings, resource nodes, health, cargo, and
+                production information can be displayed in the bottom HUD.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>World Health Bars</h3>
+
+              <p>
+                Damaged vehicles and buildings show green remaining health over
+                a red missing-health background.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Selected Health Bar</h3>
+
+              <p>
+                Selected objects use the same green and red health display in
+                the SelectedInfoPanel.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Production Progress Bar</h3>
+
+              <p>
+                Production progress is displayed using a reusable Simple
+                UISprite-based progress bar.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Basic Vehicle Combat</h3>
+
+              <p>
+                Armed vehicles automatically detect hostile objects, rotate
+                toward targets, fire, deal damage, and destroy targets.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Combat Targeting of Buildings</h3>
+
+              <p>
+                Combat vehicles can attack hostile buildings without requiring
+                those buildings to have their own CombatUnit.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Weapon Tracers</h3>
+
+              <p>
+                Weapon fire displays a visible yellow LineRenderer tracer
+                between the weapon and target.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Enemy Attack Routes</h3>
+
+              <p>
+                Enemy vehicles follow predefined waypoint routes using NavMesh
+                movement.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Enemy Vehicle Spawning</h3>
+
+              <p>
+                Enemy vehicles can be spawned automatically at configurable
+                intervals and assigned to an attack route.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Destructible Enemy Production Building</h3>
+
+              <p>
+                Enemy spawning is attached to a destructible building, and
+                destroying the structure stops future enemy production.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Destruction Resource Cleanup</h3>
+
+              <p>
+                Destroyed warehouses and cargo vehicles are automatically
+                removed from stored and in-transit resource totals.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>HQ Quick Access</h3>
+
+              <p>
+                A HUD button selects the Headquarters and centers the camera on
+                it when clicked again.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Game Time System</h3>
+
+              <p>
+                The game tracks day, hour, and minute values and supports pause
+                and adjustable time speed.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Development Website</h3>
+
+              <p>
+                The project website contains a homepage, combined changelog and
+                documentation page, project overview, and roadmap.
               </p>
             </div>
           </div>

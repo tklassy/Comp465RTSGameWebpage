@@ -32,10 +32,9 @@
 
       <nav>
         <a href="index.html">Home</a>
-        <a href="changelog.html">Changelog</a>
-        <a href="documentation.html">Documentation</a>
         <a href="project.html">Project Overview</a>
         <a href="roadmap.html">Roadmap</a>
+        <a href="changelog.html">Changelog</a>
       </nav>
 
       <main>
@@ -46,8 +45,8 @@
             <p>
               The project is a modern military real-time strategy game developed
               in Unity. The game combines traditional RTS base building and unit
-              control with a larger emphasis on logistics, transportation, and
-              resource movement.
+              control with a larger emphasis on logistics, transportation,
+              resource movement, and supporting military operations.
             </p>
           </div>
         </section>
@@ -57,10 +56,15 @@
             <h2>Vehicle Control</h2>
 
             <p>
-              Vehicles are the primary controllable units. The player can select
+              Vehicles are the primary controllable units. The Player can select
               individual vehicles or groups, issue movement commands, establish
-              routes, construct buildings, and eventually issue direct combat
-              orders.
+              logistics routes, and construct buildings.
+            </p>
+
+            <p>
+              Selectable objects use Player, Enemy, and Neutral factions. Enemy
+              and Neutral objects can be selected and inspected, while Player
+              command systems only allow Player-owned units to receive orders.
             </p>
           </div>
         </section>
@@ -70,10 +74,16 @@
             <h2>Base Building</h2>
 
             <p>
-              Buildings are placed on a grid using vehicle-based construction.
-              Current structures include the Headquarters, Barracks, production
-              buildings, maintenance facilities, and specialized resource
-              warehouses.
+              Buildings are placed on a 10×10 world grid using vehicle-based
+              construction. Current structures include the Headquarters,
+              Barracks, production buildings, maintenance facilities, and
+              specialized resource warehouses.
+            </p>
+
+            <p>
+              Buildings can have health, selection information, faction
+              ownership, and NavMesh obstacles without requiring combat
+              capabilities.
             </p>
           </div>
         </section>
@@ -84,8 +94,14 @@
 
             <p>
               The economy currently includes Money, Food, Water, Fuel, Wood,
-              Metal, and Electronics. Physical resources can be stored in
+              Metal, and Electronics. Physical resources are stored in
               specialized warehouses and transported by cargo vehicles.
+            </p>
+
+            <p>
+              The resource interface tracks both warehouse storage and resources
+              currently in transit. Destroyed cargo vehicles and warehouses
+              automatically remove their contents from the displayed totals.
             </p>
 
             <p>
@@ -97,12 +113,24 @@
 
         <section class="project-section">
           <div class="content-wrap">
-            <h2>Production</h2>
+            <h2>Production and Manpower</h2>
 
             <p>
               Production buildings use reusable production queues. Individual
               units can require resources, manpower capacity, and construction
               time before they are spawned.
+            </p>
+
+            <p>
+              Produced units consume manpower while they exist and release that
+              manpower when destroyed. Barracks increase the manpower cap and
+              remove that additional capacity if the Barracks is destroyed.
+            </p>
+
+            <p>
+              The game supports temporary over-cap states. Existing units remain
+              active if a Barracks is lost, but additional units cannot be
+              produced until manpower usage falls back below the available cap.
             </p>
           </div>
         </section>
@@ -112,13 +140,57 @@
             <h2>Combat</h2>
 
             <p>
-              Combat vehicles can detect hostile units, rotate toward targets,
-              fire weapons, deal damage, and destroy enemy vehicles.
+              Armed vehicles can automatically detect hostile Player or Enemy
+              objects, rotate toward targets, fire weapons, deal damage, and
+              destroy targets.
             </p>
 
             <p>
-              Enemy forces can be spawned continuously and directed toward the
-              player's base using predefined waypoint routes.
+              Faction ownership is independent from CombatUnit, allowing
+              non-combat buildings to be valid combat targets without giving
+              those buildings weapons.
+            </p>
+
+            <p>
+              Damaged units and buildings display world-space health bars with
+              remaining health shown in green and missing health shown in red.
+              Weapon fire currently uses visible yellow LineRenderer tracers.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section">
+          <div class="content-wrap">
+            <h2>Enemy Forces</h2>
+
+            <p>
+              Enemy vehicles use predefined waypoint routes and NavMesh
+              navigation to travel toward the Player's base.
+            </p>
+
+            <p>
+              Enemy production is currently handled by a destructible enemy
+              building. The building periodically spawns enemy vehicles and
+              assigns them to the configured attack route. Destroying the
+              production building stops future enemy vehicle spawns.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-section alternate">
+          <div class="content-wrap">
+            <h2>User Interface</h2>
+
+            <p>
+              The HUD provides resource totals, manpower, game time, selection
+              information, health, cargo information, production progress, and
+              command controls.
+            </p>
+
+            <p>
+              Health and production bars use reusable Simple UISprite-based
+              displays that resize using anchors rather than Unity Filled Image
+              rendering.
             </p>
           </div>
         </section>
@@ -128,16 +200,19 @@
             <h2>Planned Features</h2>
 
             <ul>
-              <li>Dedicated tanks and additional combat vehicles</li>
-              <li>Player attack and attack-move commands</li>
-              <li>Improved muzzle flashes and weapon effects</li>
-              <li>Enemy buildings and expanded enemy AI</li>
+              <li>Dedicated Player and Enemy tanks</li>
+              <li>Tank production building</li>
+              <li>Player Attack and Attack-Move commands</li>
+              <li>
+                Muzzle flashes, impacts, explosions, and destruction effects
+              </li>
+              <li>Expanded enemy buildings and enemy AI</li>
               <li>Construction sites requiring delivered resources</li>
-              <li>Additional logistics systems</li>
+              <li>Import and export logistics systems</li>
               <li>Minimap</li>
               <li>Building and unit upgrades</li>
               <li>Aircraft and helicopters</li>
-              <li>Import and export systems</li>
+              <li>Improved road-based vehicle navigation</li>
             </ul>
           </div>
         </section>
