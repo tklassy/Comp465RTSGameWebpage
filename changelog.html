@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Last synced Assets commit: 6ad4b74b3575d7ecf68bb0669e36b0e2186f2c3f -->
+<!-- Last synced Assets commit: 684f4aa21f631be9e3af350d1e509ee539ecdbb2 -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -92,6 +92,236 @@
       </nav>
 
       <main class="page-content">
+
+        <!-- November 3, 2026 -->
+        <details class="date-entry">
+          <summary>
+            November 3, 2026
+            <span class="date-description">
+              Tracked Combat Vehicles, Long-Range Weapons, Economy, and UI
+            </span>
+          </summary>
+
+          <div class="date-content">
+            <details class="change-entry">
+              <summary>Added Battle Tank and Tracked Vehicle Production</summary>
+
+              <div class="change-documentation">
+                <p>
+                  A Battle Tank was added as a new tracked combat vehicle using
+                  the existing selection, movement, route, health, and direct-fire
+                  systems.
+                </p>
+
+                <p>
+                  A dedicated Tracked Vehicle Production building was also added
+                  to manufacture tracked combat vehicles through the reusable
+                  BuildingProductionQueue system.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Renamed Direct-Fire Combat to HitscanAttack</summary>
+
+              <div class="change-documentation">
+                <p>
+                  The previous CombatUnit component was renamed to HitscanAttack
+                  to better describe its role as the direct-fire weapon system.
+                </p>
+
+                <p>
+                  Direct-fire weapons can now require the turret to rotate within
+                  a configurable firing-angle tolerance before damage is applied.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Reusable Long-Range Projectile Combat</summary>
+
+              <div class="change-documentation">
+                <p>
+                  LongRangeProjectileAttack and LongRangeProjectile were added as
+                  reusable systems for artillery, rockets, missiles, and other
+                  indirect-fire weapons.
+                </p>
+
+                <p>
+                  The system supports minimum and maximum range, launcher
+                  rotation, aim-before-fire behavior, arcing projectile flight,
+                  configurable salvo size and timing, impact effects, splash
+                  damage, hostile-only damage, and configurable impact spread.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added HIMARS</summary>
+
+              <div class="change-documentation">
+                <p>
+                  HIMARS was added as a mobile long-range rocket artillery
+                  vehicle produced from the Heavy Truck Production Depot.
+                </p>
+
+                <p>
+                  Its launcher fires multi-rocket salvos using the new
+                  long-range projectile system. Configurable salvo dispersion
+                  prevents every rocket from impacting the exact same point.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Tracked Artillery</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Tracked Artillery was added as a second indirect-fire combat
+                  vehicle produced from Tracked Vehicle Production.
+                </p>
+
+                <p>
+                  It uses a single high-damage projectile with a larger splash
+                  radius to distinguish it from the multi-rocket HIMARS salvo.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Projectile Impact Effects</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Reusable artillery and HIMARS impact prefabs and materials were
+                  added so long-range projectiles can display visible impact
+                  effects when they reach their target position.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Building Construction Costs</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Building prefabs now expose configurable resource costs in the
+                  Inspector. Building placement checks affordability before a
+                  construction order is accepted and spends the required
+                  resources when the order is issued.
+                </p>
+
+                <p>
+                  Production options continue to use configurable resource and
+                  manpower costs through BuildingProductionQueue.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Construction Cancellation Refunds</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Construction orders now carry a record of the resources paid
+                  for that building.
+                </p>
+
+                <p>
+                  Canceling or replacing an unfinished build order, canceling
+                  queued construction, or losing the construction vehicle
+                  refunds the paid resources. Successfully completed buildings
+                  consume the resources permanently.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Updated Building Placement Visuals</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Placement feedback now uses separate transparent materials for
+                  each construction state.
+                </p>
+
+                <p>
+                  Valid placement previews are shown in transparent grey,
+                  invalid placement previews are shown in transparent red, and
+                  confirmed construction ghosts are shown in a transparent light
+                  orange until construction completes.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Developer Resource Controls</summary>
+
+              <div class="change-documentation">
+                <p>
+                  A DeveloperCheats component and Dev Commands panel were added
+                  to speed up testing. The resource command adds Money and fills
+                  Player-owned resource warehouses without requiring collection
+                  routes during development.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added In-Game Menu Framework</summary>
+
+              <div class="change-documentation">
+                <p>
+                  An in-game menu now provides Return to Game, Controls,
+                  Settings, Dev Commands, and Exit Game buttons.
+                </p>
+
+                <p>
+                  Return to Game closes the main menu, while Dev Commands
+                  independently toggles the developer panel so debug controls can
+                  remain visible during gameplay. Controls, Settings, and Exit
+                  are currently placeholders for future functionality.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Started Command Hover Tooltips</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Command buttons can now expose tooltip data containing a name,
+                  description, resource cost, and manpower requirement.
+                </p>
+
+                <p>
+                  Tooltip costs are read from the same building and production
+                  data used by gameplay, avoiding a separate set of hard-coded
+                  UI costs.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Fixed Headquarters Quick Access Faction Selection</summary>
+
+              <div class="change-documentation">
+                <p>
+                  The Headquarters quick-access button now searches by both
+                  building type and Player faction.
+                </p>
+
+                <p>
+                  This prevents the button from selecting or centering the
+                  camera on an Enemy Headquarters when both factions have an HQ
+                  registered with UnitSelectionManager.
+                </p>
+              </div>
+            </details>
+          </div>
+        </details>
+
         <!-- October 20, 2026 -->
         <details class="date-entry">
           <summary>
