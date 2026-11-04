@@ -109,6 +109,12 @@ header h2 {
   margin-bottom: 10px;
 }
 
+.as-of-date {
+  margin-bottom: 0;
+
+  font-size: 0.95em;
+}
+
 /* Development Notices
 ------------------------------------ */
 
@@ -228,9 +234,11 @@ section {
 }
 
 .date-entry summary {
+  position: relative;
+
   cursor: pointer;
 
-  padding: 22px 30px;
+  padding: 22px 65px 22px 30px;
 
   font-family: "IBM Plex Serif", serif;
 
@@ -252,13 +260,19 @@ section {
 .date-entry summary::after {
   content: "+";
 
-  float: right;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+
+  transform: translateY(-50%);
 
   font-family: "IBM Plex Sans", sans-serif;
 
   font-size: 1.2em;
 
   font-weight: 600;
+
+  line-height: 1;
 }
 
 .date-entry[open] summary::after {
@@ -439,9 +453,11 @@ section {
 }
 
 .roadmap-entry summary {
+  position: relative;
+
   cursor: pointer;
 
-  padding: 22px 30px;
+  padding: 22px 65px 22px 30px;
 
   font-family: "IBM Plex Serif", serif;
 
@@ -463,11 +479,19 @@ section {
 .roadmap-entry summary::after {
   content: "+";
 
-  float: right;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+
+  transform: translateY(-50%);
 
   font-family: "IBM Plex Sans", sans-serif;
 
   font-size: 1.2em;
+
+  font-weight: 600;
+
+  line-height: 1;
 }
 
 .roadmap-entry[open] summary::after {
