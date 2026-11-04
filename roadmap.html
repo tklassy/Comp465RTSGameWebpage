@@ -53,6 +53,223 @@
           </summary>
 
           <div class="roadmap-content">
+            <!-- Next Work Cycle: UI, Economy, and Automation -->
+
+            <div class="roadmap-item priority">
+              <h3>Tablet-Based UI Revamp</h3>
+
+              <p>
+                Redesign the existing HUD around a consistent military tablet
+                theme. The top resource bar will represent the exposed lower
+                edge of the Player's primary tablet, while the command panel,
+                selected-object information panel, and other HUD elements use
+                smaller tablet-style displays and frames.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Expandable Main Tablet</h3>
+
+              <p>
+                Add minimized and expanded states for the primary tablet. During
+                normal gameplay only the top HUD remains visible. Selecting
+                detailed information will slide the tablet into view and open
+                the appropriate management page.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Tablet Page Framework</h3>
+
+              <p>
+                Create a reusable page system so logistics, economy, production,
+                objectives, warnings, upgrades, and other management interfaces
+                can share the same main tablet instead of requiring separate
+                full-screen menus.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>UI Polish Pass</h3>
+
+              <p>
+                Improve the HUD with finished borders, frames, headers, spacing,
+                backgrounds, button states, and other visual details while
+                converting appropriate panels into tablet-style displays.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Tutorial and Objective Interface</h3>
+
+              <p>
+                Add a reusable tutorial and objective display that gives the
+                Player guidance, current objectives, progress information, and
+                completion feedback. Initial objectives will introduce
+                selection, construction, resource collection, logistics routes,
+                production, rally points, and combat.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Basic Player Economy</h3>
+
+              <p>
+                Implement a simple Player economy so Money has a recurring
+                gameplay loop beyond starting resources. Establish the baseline
+                systems for starting Money, basic income, construction expenses,
+                and vehicle production expenses before adding more advanced
+                economic systems.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Automatic Resource Routes</h3>
+
+              <p>
+                Allow a compatible logistics vehicle to automatically create a
+                repeating collection route when the Player right-clicks a
+                resource node. The vehicle selects the nearest compatible Player
+                warehouse and establishes a Resource Node → Warehouse → Resource
+                Node loop while preserving the manual Route command for advanced
+                networks.
+              </p>
+
+              <p>
+                Warehouse fullness does not prevent the route from being
+                created. The vehicle continues operating the assigned route and
+                unloads whenever storage capacity becomes available.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Strategic Overlay System</h3>
+
+              <p>
+                Create a reusable battlefield overlay system controlled through
+                the tablet interface. Overlay layers can display logistics,
+                supply, combat, production, and other strategic information
+                without replacing the normal battlefield view.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Logistics Overlay</h3>
+
+              <p>
+                Display resource sites, warehouses, active logistics routes,
+                vehicle cargo movement, manufacturing facilities, and
+                supply-network relationships directly over the battlefield.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Supply Warning Overlay</h3>
+
+              <p>
+                Allow the Player to highlight units and facilities with low
+                Fuel, Ammunition, Food, Water, or other required supplies.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Weapon Range Visualization</h3>
+
+              <p>
+                Display weapon ranges when hovering over or selecting friendly
+                or enemy combat units. Direct-fire units show maximum range,
+                while artillery and rocket systems display both minimum and
+                maximum engagement ranges using the actual combat-component
+                values.
+              </p>
+            </div>
+
+            <!-- Production and Logistics Automation -->
+
+            <div class="roadmap-item priority">
+              <h3>Maintain Stock Production</h3>
+
+              <p>
+                Allow manufacturing facilities to maintain a Player-defined
+                quantity of finished products in local storage. When stock falls
+                below the configured target, the facility automatically queues
+                enough production to restore the requested amount while
+                accounting for stored, currently producing, and already queued
+                items.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Production Storage</h3>
+
+              <p>
+                Give manufacturing facilities local output storage so
+                ammunition, components, and other manufactured resources remain
+                at the facility until collected or transported.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Context-Sensitive Right-Click Commands</h3>
+
+              <p>
+                Expand right-click interaction so common actions are inferred
+                from the selected unit and clicked target, including movement,
+                attacking, automatic resource routes, cargo delivery, repair,
+                and supply interactions.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Unit Rules of Engagement</h3>
+
+              <p>
+                Add configurable combat stances such as Hold Fire, Return Fire,
+                and Engage in Range so the Player can control when combat units
+                automatically engage targets.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Control Groups</h3>
+
+              <p>
+                Add standard RTS control groups so selected units can be assigned
+                to numbered groups, quickly reselected, and centered by the
+                camera.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Vehicle Spacing and Formations</h3>
+
+              <p>
+                Add basic group spacing options such as Tight, Normal, and
+                Spread to reduce vehicle stacking and improve battlefield
+                organization.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Unit Supply Status</h3>
+
+              <p>
+                Expand unit information to show operational supply levels such as
+                Ammunition, Fuel, and Health, with low-resource indicators that
+                can also feed the strategic overlay and warning systems.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Automatic Battlefield Resupply Upgrade</h3>
+
+              <p>
+                Add a late-game upgrade that allows selected logistics systems
+                to automatically respond to battlefield supply shortages. Before
+                this upgrade is unlocked, identifying shortages and organizing
+                combat-unit resupply remains the Player's responsibility.
+              </p>
+            </div>
 
             <div class="roadmap-item priority">
               <h3>Attack Command</h3>
