@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Last synced Assets commit: 684f4aa21f631be9e3af350d1e509ee539ecdbb2 -->
+<!-- Last synced Assets commit: 6230c3d30443e6e0fad97b8535cd4bc8589cc617 -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -88,7 +88,7 @@
           </p>
 
           <p class="as-of-date">
-            <strong>As of:</strong> November 3, 2026
+            <strong>As of:</strong> November 4, 2026
           </p>
         </div>
       </header>
@@ -101,6 +101,254 @@
       </nav>
 
       <main class="page-content">
+
+        <!-- November 4, 2026 -->
+        <details class="date-entry">
+          <summary>
+            November 4, 2026
+            <span class="date-description">
+              Tablet Interface, Enemy Economy, Logistics, and AI
+            </span>
+          </summary>
+
+          <div class="date-content">
+            <details class="change-entry">
+              <summary>Added Tablet Interface Framework</summary>
+
+              <div class="change-documentation">
+                <p>
+                  A new tablet-style RTS interface was added around the existing
+                  HUD. TabletUIManager controls the primary tablet panel and its
+                  open and closed states while preserving the top information
+                  area during normal gameplay.
+                </p>
+
+                <p>
+                  The tablet now animates between retracted and expanded states,
+                  and the top information interface moves with the tablet so the
+                  HUD remains visually connected to the device as it opens and
+                  closes.
+                </p>
+
+                <p>
+                  New tablet UI art and supporting interface assets were also
+                  added for the main tablet, command panel, information panels,
+                  application icons, buttons, edges, connectors, and related
+                  interface elements.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Tablet Desktop Applications</summary>
+
+              <div class="change-documentation">
+                <p>
+                  TabletDesktopManager was added to provide a desktop-style
+                  application framework inside the expanded main tablet.
+                </p>
+
+                <p>
+                  The current desktop includes Help, Resources, Logistics,
+                  Units, Buildings, Enemy Info, and Upgrades applications.
+                  Applications can be opened and closed independently, allowing
+                  multiple tablet windows to remain available without replacing
+                  the underlying desktop.
+                </p>
+
+                <p>
+                  The Upgrades application is currently a placeholder for future
+                  progression systems, while the other applications establish
+                  the reusable structure for expanding tablet-based management
+                  interfaces later.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Expanded Command Hover Tooltips</summary>
+
+              <div class="change-documentation">
+                <p>
+                  Command hover tooltips were expanded beyond the initial
+                  production and construction foundation to cover additional
+                  command-panel actions including movement, routing, Build and
+                  Back navigation, rally controls, warehouse interactions, and
+                  road-related commands.
+                </p>
+
+                <p>
+                  Generic fallback tooltip information is available for command
+                  actions that do not use a production or building-cost entry,
+                  while construction and production options continue to read
+                  their resource and manpower requirements from gameplay data.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Faction-Specific Resource Managers</summary>
+
+              <div class="change-documentation">
+                <p>
+                  The previous shared resource-management architecture was split
+                  into dedicated Player and Enemy managers while retaining
+                  ResourceManager as the common resource type and API layer.
+                </p>
+
+                <p>
+                  Player and Enemy Money, physical resources, storage, and
+                  manpower can now be tracked independently, establishing the
+                  economy separation required for an RTS opponent that follows
+                  the same production and logistics rules as the Player.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Updated Production and Manpower for Factions</summary>
+
+              <div class="change-documentation">
+                <p>
+                  BuildingProductionQueue now resolves the resource manager that
+                  belongs to the production building's faction before checking
+                  affordability, spending resources, reserving manpower, and
+                  completing production.
+                </p>
+
+                <p>
+                  Newly produced units inherit the producing building's faction,
+                  and ManpowerUsage now records the owning faction so destroyed
+                  units return manpower to the correct economy instead of always
+                  affecting the Player.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Enemy Economy Information</summary>
+
+              <div class="change-documentation">
+                <p>
+                  EnemyInfoUI was added to the tablet so the Enemy faction's
+                  current economy and force state can be inspected during
+                  development and gameplay testing.
+                </p>
+
+                <p>
+                  The interface reports Enemy Money, Food, Water, Fuel, Wood,
+                  Metal, Electronics, manpower usage and capacity, stored
+                  resources, unit count, and building count.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Autonomous Enemy Vehicle Production</summary>
+
+              <div class="change-documentation">
+                <p>
+                  EnemyAIManager now maintains a configurable Enemy Humvee force
+                  through the normal BuildingProductionQueue instead of relying
+                  on the earlier free-spawn prototype.
+                </p>
+
+                <p>
+                  Enemy Humvees therefore consume the Enemy faction's Money,
+                  resources, and manpower when produced. The manager can queue
+                  replacement vehicles as the active force falls below its
+                  configured goal.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Enemy Warehouse and Shared Resource Collection</summary>
+
+              <div class="change-documentation">
+                <p>
+                  A physical Enemy Warehouse and EnemyWarehouse transfer system
+                  were added so Enemy logistics vehicles can return collected
+                  resources to the Enemy economy through a dedicated unload
+                  area.
+                </p>
+
+                <p>
+                  EnemyResourceCollector allows Enemy Humvees to locate normal
+                  ResourceNode objects, travel to them using NavMesh movement,
+                  load physical cargo, return to the Enemy Warehouse, unload,
+                  and repeat the collection loop.
+                </p>
+
+                <p>
+                  Enemy collection deliberately uses the same map resource nodes
+                  as Player logistics. Both factions therefore remove resources
+                  from the same finite resource pools, creating direct
+                  competition over Metal, Electronics, and future shared
+                  resource sites.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Enemy Humvee Resource Roles</summary>
+
+              <div class="change-documentation">
+                <p>
+                  EnemyAIManager can assign produced Humvees to dedicated
+                  resource roles instead of making every vehicle a collector.
+                  Current logistics assignments include a Metal collector and an
+                  Electronics collector.
+                </p>
+
+                <p>
+                  Collector roles use the shared Enemy Warehouse and can be
+                  reassigned as available Enemy Humvees change, leaving
+                  additional vehicles available for patrol and attack behavior.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Expanded Enemy Patrol and Attack Routing</summary>
+
+              <div class="change-documentation">
+                <p>
+                  EnemyRouteFollower was expanded to support both one-way attack
+                  routes and looping patrol routes while continuing to use
+                  NavMesh movement and configurable waypoint reach distances.
+                </p>
+
+                <p>
+                  EnemyAIManager can now reserve separate Humvees for resource
+                  collection, patrol duty, and an attack route toward the
+                  Player. Armed Enemy Humvees continue to use faction-aware
+                  targeting and automatically engage Player-owned units or
+                  buildings encountered within weapon range.
+                </p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Fixed Player Resource Tracking Across Factions</summary>
+
+              <div class="change-documentation">
+                <p>
+                  ResourceTopBarUI now explicitly tracks Player-owned warehouses
+                  and Player-owned vehicle cargo instead of scanning every cargo
+                  container in the scene.
+                </p>
+
+                <p>
+                  Resources carried by Enemy collectors therefore no longer
+                  appear in the Player's in-transit totals or hover breakdowns.
+                  The top bar also now resolves the Player resource manager
+                  directly.
+                </p>
+              </div>
+            </details>
+          </div>
+        </details>
 
         <!-- November 3, 2026 -->
         <details class="date-entry">
