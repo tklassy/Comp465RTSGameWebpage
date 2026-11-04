@@ -30,7 +30,8 @@
       }
 
       .date-entry .change-entry > summary {
-        padding: 18px 20px;
+        position: relative;
+        padding: 18px 52px 18px 20px;
         font-family: "IBM Plex Sans", sans-serif;
         font-size: 1.05em;
         font-weight: 600;
@@ -45,10 +46,14 @@
 
       .date-entry .change-entry > summary::after {
         content: "+";
-        float: right;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
         font-family: "IBM Plex Sans", sans-serif;
         font-size: 1.1em;
         font-weight: 600;
+        line-height: 1;
       }
 
       .date-entry .change-entry[open] > summary::after {
@@ -80,6 +85,10 @@
             A chronological record of features, fixes, and changes made during
             development of the COMP 465 RTS project. Individual changes can be
             expanded to view their implementation documentation.
+          </p>
+
+          <p class="as-of-date">
+            <strong>As of:</strong> November 3, 2026
           </p>
         </div>
       </header>
