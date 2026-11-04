@@ -1,5 +1,12 @@
 # COMP 465 RTS Workflow
 
+**As of:** November 4, 2026
+
+## Document maintenance
+
+- Whenever `AGENTS.md` is modified, update the `As of` date at the top of this file to the date of the change.
+- Whenever a website page or file with an `As of` date is modified, update that file's `As of` date as part of the same change.
+
 ## Start every work cycle
 
 - Review the current development website and Assets repository before proposing or changing implementation. Do not rely solely on previous chats.
@@ -17,6 +24,7 @@
 - For unusually large files or small targeted fixes where a full replacement would be impractical, Still provide a full replacement.
 - Preserve Unity `.meta` files and GUIDs. Explain any required Inspector assignments, scene setup, or prefab changes separately.
 - Verify the affected behavior when possible. Clearly state checks that were run and any Unity testing still required.
+- For current Unity versions, use the non-deprecated `FindObjectsByType<T>()` or `FindObjectsByType<T>(FindObjectsInactive)` overloads when searching scene objects. Do not use the deprecated overload that passes `FindObjectsSortMode`.
 
 ## Changelog format
 
@@ -31,11 +39,17 @@
 - For a chat-only bullet summary, use the same date, theme, and action titles. For website-ready output, retain the exact HTML classes and nesting above.
 - Do not invent implementation details, test results, or completed features. Keep provenance notes outside publication-ready entry text.
 
+## Roadmap history
+
+- Keep older completed roadmap milestones even when later work supersedes, replaces, or substantially improves them. Completed milestones document the project's development history and should not be removed merely because a newer implementation now exists.
+- When a planned roadmap item becomes complete, move or add the completed milestone as appropriate without rewriting unrelated historical completed entries solely to reflect the newest architecture.
+
 ## Website changes and publishing
 
 - Keep the website read-only during a work cycle. Maintain proposed entries and other drafts separately from website files.
 - Only update website files at the end of a work cycle, and only with explicit user permission covering those edits.
-- At the end of the work cycle the user will push all the changes made that cycle to the assests reposotory, this will be used to assist in preparing the changelog and roadmap updates.
+- At the end of the work cycle the user will push all changes made that cycle to the Assets repository. Use that pushed state to assist in preparing changelog and roadmap updates.
+- After the user pushes the Assets repository at the end of a work cycle, re-read the newly pushed commit and compare it against the website's current `Last synced Assets commit` marker before preparing final changelog and roadmap edits.
 - Before requesting permission, prepare the concrete proposed content and describe the affected files so the user can review the result in chat for a quick review.
 - Editing permission does not automatically authorize a push. Push, merge, deploy, or publish only when the user explicitly authorizes that action at the end of the work cycle. A single explicit instruction may authorize both editing and pushing.
 - Do not interpret a request to inspect, draft, reformat, or summarize as permission to modify or publish the website.
