@@ -76,8 +76,15 @@
             <p>
               Buildings are placed on a 10×10 world grid using vehicle-based
               construction. Current structures include the Headquarters,
-              Barracks, production buildings, maintenance facilities, and
-              specialized resource warehouses.
+              Barracks, Heavy Truck Production Depot, Tracked Vehicle
+              Production, maintenance facilities, and specialized resource
+              warehouses.
+            </p>
+
+            <p>
+              Building prefabs use configurable construction costs. Placement
+              checks affordability before accepting an order, and canceled
+              unfinished construction orders refund their paid resources.
             </p>
 
             <p>
@@ -142,19 +149,29 @@
             <p>
               Armed vehicles can automatically detect hostile Player or Enemy
               objects, rotate toward targets, fire weapons, deal damage, and
-              destroy targets.
+              destroy targets. Direct-fire weapons use HitscanAttack and can
+              require turret alignment before firing.
             </p>
 
             <p>
-              Faction ownership is independent from CombatUnit, allowing
-              non-combat buildings to be valid combat targets without giving
-              those buildings weapons.
+              LongRangeProjectileAttack provides reusable indirect-fire behavior
+              with launcher rotation, minimum range, arcing projectiles, salvo
+              timing, configurable spread, splash damage, and impact effects.
+              Current combat vehicles include the Battle Tank, HIMARS, and
+              Tracked Artillery.
+            </p>
+
+            <p>
+              Faction ownership remains independent from weapon behavior,
+              allowing non-combat buildings to be valid combat targets without
+              giving those buildings weapons.
             </p>
 
             <p>
               Damaged units and buildings display world-space health bars with
               remaining health shown in green and missing health shown in red.
-              Weapon fire currently uses visible yellow LineRenderer tracers.
+              Direct-fire weapons use visible yellow LineRenderer tracers while
+              long-range projectiles use visible impact effects.
             </p>
           </div>
         </section>
@@ -188,6 +205,18 @@
             </p>
 
             <p>
+              An in-game menu provides Return to Game, Controls, Settings, Dev
+              Commands, and Exit Game options. The developer panel can remain
+              open independently and includes resource controls for testing.
+            </p>
+
+            <p>
+              Command-button hover tooltips are being integrated using shared
+              prefab and production data for names, descriptions, resource
+              costs, and manpower requirements.
+            </p>
+
+            <p>
               Health and production bars use reusable Simple UISprite-based
               displays that resize using anchors rather than Unity Filled Image
               rendering.
@@ -200,13 +229,15 @@
             <h2>Planned Features</h2>
 
             <ul>
-              <li>Dedicated Player and Enemy tanks</li>
-              <li>Tank production building</li>
               <li>Player Attack and Attack-Move commands</li>
+              <li>Fog of war with Hidden, Explored, and Visible states</li>
               <li>
-                Muzzle flashes, impacts, explosions, and destruction effects
+                Additional muzzle flashes, explosions, and destruction effects
               </li>
-              <li>Expanded enemy buildings and enemy AI</li>
+              <li>
+                RTS-style enemy base AI using the same economy, construction,
+                production, and logistics rules as the Player
+              </li>
               <li>Construction sites requiring delivered resources</li>
               <li>Import and export logistics systems</li>
               <li>Minimap</li>
