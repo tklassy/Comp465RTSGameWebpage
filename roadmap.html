@@ -30,7 +30,7 @@
           </p>
 
           <p class="as-of-date">
-            <strong>As of:</strong> November 3, 2026
+            <strong>As of:</strong> November 4, 2026
           </p>
         </div>
       </header>
@@ -64,28 +64,6 @@
                 edge of the Player's primary tablet, while the command panel,
                 selected-object information panel, and other HUD elements use
                 smaller tablet-style displays and frames.
-              </p>
-            </div>
-
-            <div class="roadmap-item priority">
-              <h3>Expandable Main Tablet</h3>
-
-              <p>
-                Add minimized and expanded states for the primary tablet. During
-                normal gameplay only the top HUD remains visible. Selecting
-                detailed information will slide the tablet into view and open
-                the appropriate management page.
-              </p>
-            </div>
-
-            <div class="roadmap-item priority">
-              <h3>Tablet Page Framework</h3>
-
-              <p>
-                Create a reusable page system so logistics, economy, production,
-                objectives, warnings, upgrades, and other management interfaces
-                can share the same main tablet instead of requiring separate
-                full-screen menus.
               </p>
             </div>
 
@@ -321,16 +299,6 @@
             </div>
 
             <div class="roadmap-item priority">
-              <h3>Faction-Specific Economies</h3>
-
-              <p>
-                Separate Player and Enemy Money, physical resources, storage,
-                and manpower so each faction has an independent economy that can
-                support construction, production, and future logistics AI.
-              </p>
-            </div>
-
-            <div class="roadmap-item priority">
               <h3>Enemy Logistics Routes</h3>
 
               <p>
@@ -348,6 +316,27 @@
                 attack groups, launch attacks when force requirements are met,
                 and then rebuild the next force instead of spawning attackers
                 for free.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Base Patrol</h3>
+
+              <p>
+                Add a dedicated Enemy patrol role focused on the immediate base
+                perimeter, important production buildings, warehouses, and
+                nearby approaches so the Enemy maintains a local defensive
+                presence instead of relying only on broader patrol routes.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Map Patrol</h3>
+
+              <p>
+                Add dedicated Enemy patrol units or formations that travel
+                broader strategic routes between roads, shared resource sites,
+                intersections, and likely Player approaches across the map.
               </p>
             </div>
 
@@ -727,18 +716,6 @@
             </div>
 
             <div class="roadmap-item priority">
-              <h3>Finish Command Hover Tooltips</h3>
-
-              <p>
-                Finish the command-button tooltip system by making tooltips
-                follow the mouse and adding tooltip information for Build and
-                Back navigation buttons while retaining live name, description,
-                resource-cost, and manpower information for construction and
-                production options.
-              </p>
-            </div>
-
-            <div class="roadmap-item priority">
               <h3>Resource and Manpower Warning Popups</h3>
 
               <p>
@@ -971,6 +948,121 @@
           </summary>
 
           <div class="roadmap-content">
+
+            <div class="roadmap-item completed">
+              <h3>Expandable Main Tablet</h3>
+
+              <p>
+                The primary tablet now supports animated expanded and retracted
+                states while keeping the top information interface connected to
+                the tablet during movement.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Tablet Application Framework</h3>
+
+              <p>
+                A reusable tablet desktop can open and close Help, Resources,
+                Logistics, Units, Buildings, Enemy Info, and Upgrades
+                applications independently while preserving the underlying
+                desktop.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Expanded Command Hover Tooltips</h3>
+
+              <p>
+                Command hover information now covers movement, routing, Build
+                and Back navigation, rally controls, warehouse interactions,
+                road commands, construction costs, production costs, and
+                manpower requirements.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Faction-Specific Economies</h3>
+
+              <p>
+                Player and Enemy Money, physical resources, storage, and
+                manpower are tracked through separate faction resource managers
+                while sharing the common ResourceManager API.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Enemy Economy Information</h3>
+
+              <p>
+                The tablet Enemy Info application reports Enemy resources,
+                Money, manpower, stored resources, active units, and buildings
+                for development and gameplay monitoring.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Autonomous Enemy Vehicle Production</h3>
+
+              <p>
+                EnemyAIManager maintains a configurable Humvee force by ordering
+                vehicles through the normal production queue and spending Enemy
+                Money, resources, and manpower instead of spawning replacements
+                for free.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Enemy Warehouse</h3>
+
+              <p>
+                A physical Enemy Warehouse accepts resources returned by Enemy
+                logistics vehicles and transfers their cargo into the Enemy
+                faction's resource storage.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Enemy Shared Resource Collection</h3>
+
+              <p>
+                Enemy Humvees can autonomously collect Metal and Electronics
+                from the same finite ResourceNode objects used by the Player,
+                return cargo to the Enemy Warehouse, unload, and repeat the
+                logistics cycle.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Enemy AI Role Assignment</h3>
+
+              <p>
+                EnemyAIManager can reserve produced Humvees for Metal collection,
+                Electronics collection, patrol duty, and attacks against the
+                Player while keeping faction roles separate from the production
+                system itself.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Looping Enemy Patrol Routes</h3>
+
+              <p>
+                Enemy route followers can now use looping waypoint routes for
+                patrol behavior in addition to the existing one-way attack
+                routes.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Player Resource Faction Filtering</h3>
+
+              <p>
+                The Player resource top bar and hover breakdowns explicitly
+                ignore Enemy warehouses and Enemy vehicle cargo so opposing
+                logistics no longer alter Player stored or in-transit totals.
+              </p>
+            </div>
 
             <div class="roadmap-item completed">
               <h3>Battle Tank</h3>
