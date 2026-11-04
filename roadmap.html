@@ -52,23 +52,6 @@
           </summary>
 
           <div class="roadmap-content">
-            <div class="roadmap-item priority">
-              <h3>Tank Combat Vehicle</h3>
-
-              <p>
-                Add dedicated Player and Enemy tanks with configurable health,
-                damage, targeting range, fire rate, and turret behavior.
-              </p>
-            </div>
-
-            <div class="roadmap-item priority">
-              <h3>Tank Production Building</h3>
-
-              <p>
-                Add a production building specifically for tanks and other
-                combat vehicles using the existing BuildingProductionQueue.
-              </p>
-            </div>
 
             <div class="roadmap-item priority">
               <h3>Attack Command</h3>
@@ -107,22 +90,56 @@
             </div>
 
             <div class="roadmap-item priority">
-              <h3>Expanded Enemy Base Behavior</h3>
+              <h3>RTS-Style Enemy Base and Economy AI</h3>
 
               <p>
-                Expand the current destructible enemy production building into a
-                larger enemy base system with additional production buildings,
-                unit types, and attack behavior.
+                Replace free enemy spawning with an AI-controlled faction that
+                follows the same rules as the Player. The Enemy should collect
+                and store resources, pay construction and production costs,
+                build its own base, produce vehicles through normal production
+                queues, form attack groups, replace losses, and rebuild
+                destroyed infrastructure.
               </p>
             </div>
 
             <div class="roadmap-item priority">
-              <h3>Advanced Enemy AI</h3>
+              <h3>Faction-Specific Economies</h3>
 
               <p>
-                Expand enemy behavior beyond fixed routes with multiple attack
-                routes, attack groups, target priorities, and more advanced
-                decision making.
+                Separate Player and Enemy Money, physical resources, storage,
+                and manpower so each faction has an independent economy that can
+                support construction, production, and future logistics AI.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Enemy Logistics Routes</h3>
+
+              <p>
+                Allow Enemy logistics vehicles to use the same resource nodes,
+                cargo, warehouses, and persistent route systems as the Player so
+                disrupting enemy transportation directly affects its economy.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Enemy Attack Groups</h3>
+
+              <p>
+                Have the Enemy assemble actually produced combat vehicles into
+                attack groups, launch attacks when force requirements are met,
+                and then rebuild the next force instead of spawning attackers
+                for free.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Fog of War and Vision</h3>
+
+              <p>
+                Add Hidden, Explored, and Visible map states with configurable
+                sight ranges. Combat systems should require current visibility
+                before acquiring or firing on hostile targets.
               </p>
             </div>
 
@@ -492,11 +509,26 @@
             </div>
 
             <div class="roadmap-item priority">
-              <h3>Production Cost Display</h3>
+              <h3>Finish Command Hover Tooltips</h3>
 
               <p>
-                Display build time, physical resource costs, and manpower
-                requirements for available production options.
+                Finish the command-button tooltip system by making tooltips
+                follow the mouse and adding tooltip information for Build and
+                Back navigation buttons while retaining live name, description,
+                resource-cost, and manpower information for construction and
+                production options.
+              </p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Resource and Manpower Warning Popups</h3>
+
+              <p>
+                Finish world-positioned warning messages for failed construction
+                and production attempts. Building shortages should appear near
+                the attempted construction location, while production and
+                manpower shortages should appear above the selected production
+                building.
               </p>
             </div>
 
@@ -739,12 +771,13 @@
             </div>
 
             <div class="roadmap-item priority">
-              <h3>Main Menu and Level Launcher</h3>
+              <h3>Finish Menu Functions and Level Launcher</h3>
 
               <p>
-                Add a basic main menu that allows the Player to start the game,
-                select available maps or levels, access settings, and exit the
-                application.
+                Expand the current in-game menu framework with functional
+                Controls, Settings, and Exit Game actions, then add a front-end
+                level launcher for starting the game and selecting available
+                maps or levels.
               </p>
             </div>
 
@@ -780,6 +813,124 @@
           </summary>
 
           <div class="roadmap-content">
+
+            <div class="roadmap-item completed">
+              <h3>Battle Tank</h3>
+
+              <p>
+                A tracked direct-fire combat vehicle is implemented with
+                selectable movement, routing, health, turret rotation, and
+                aim-before-fire behavior.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Tracked Vehicle Production</h3>
+
+              <p>
+                A dedicated production building can manufacture tracked combat
+                vehicles using the reusable production queue.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>HIMARS</h3>
+
+              <p>
+                A mobile long-range rocket artillery vehicle is implemented with
+                launcher rotation, multi-rocket salvos, splash damage, impact
+                effects, and configurable salvo spread.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Tracked Artillery</h3>
+
+              <p>
+                A tracked indirect-fire vehicle is implemented with a single
+                high-damage projectile and large splash radius.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Long-Range Projectile Combat</h3>
+
+              <p>
+                Reusable projectile attack and projectile-flight systems support
+                arcing trajectories, launcher aiming, minimum range, salvo
+                timing, spread, splash damage, and impact effects.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Building Construction Costs</h3>
+
+              <p>
+                Building prefabs expose configurable construction costs and
+                placement checks affordability before accepting an order.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Construction Cancellation Refunds</h3>
+
+              <p>
+                Unfinished building orders retain a cost receipt so canceled,
+                replaced, queued, or interrupted construction can return the
+                resources that were spent.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Construction Placement States</h3>
+
+              <p>
+                Building placement uses transparent grey for valid previews,
+                transparent red for invalid locations, and transparent light
+                orange for confirmed construction ghosts.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Developer Commands Panel</h3>
+
+              <p>
+                An independently toggleable developer panel includes a resource
+                cheat that adds Money and fills Player-owned warehouses for
+                testing.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>In-Game Menu Framework</h3>
+
+              <p>
+                An in-game menu provides Return to Game, Controls, Settings,
+                Dev Commands, and Exit Game buttons, with Return to Game and Dev
+                Commands currently functional.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>HQ Focus Faction Filter</h3>
+
+              <p>
+                Headquarters quick access now explicitly searches for the
+                Player-owned HQ so the Enemy Headquarters cannot be selected by
+                the shortcut.
+              </p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Command Tooltip Foundation</h3>
+
+              <p>
+                Command buttons can expose names, descriptions, building or
+                production costs, and manpower information using the same data
+                that drives gameplay.
+              </p>
+            </div>
+
             <div class="roadmap-item completed">
               <h3>RTS Camera</h3>
 
