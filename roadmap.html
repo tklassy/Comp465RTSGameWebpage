@@ -30,7 +30,7 @@
           </p>
 
           <p class="as-of-date">
-            <strong>As of:</strong> November 4, 2026
+            <strong>As of:</strong> November 13, 2026
           </p>
         </div>
       </header>
@@ -53,18 +53,31 @@
           </summary>
 
           <div class="roadmap-content">
+            <div class="roadmap-item priority">
+              <h3>Mouse-Click Sounds</h3>
+              <p>Add audio feedback for general mouse clicks and selection interactions, building on the existing command-execution sounds.</p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Right-Click Navigation Flag</h3>
+              <p>Show a temporary destination flag when the Player issues a right-click movement order, then remove it after a short delay.</p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Title Scene</h3>
+              <p>Add a title scene with looping background music, a Start Game button, and access to Settings.</p>
+            </div>
+
+            <div class="roadmap-item priority">
+              <h3>Expanded Audio Controls</h3>
+              <p>Extend the existing music and vehicle-movement sliders with additional sound categories, such as weapons and UI sounds.</p>
+            </div>
+
             <!-- Next Work Cycle: UI, Economy, and Automation -->
 
             <div class="roadmap-item priority">
               <h3>Tablet-Based UI Revamp</h3>
-
-              <p>
-                Redesign the existing HUD around a consistent military tablet
-                theme. The top resource bar will represent the exposed lower
-                edge of the Player's primary tablet, while the command panel,
-                selected-object information panel, and other HUD elements use
-                smaller tablet-style displays and frames.
-              </p>
+              <p>Continue refining the implemented military tablet interface with consistent frames, spacing, button states, and layouts across the main tablet, command panel, and selected-object display.</p>
             </div>
 
             <div class="roadmap-item priority">
@@ -200,12 +213,7 @@
 
             <div class="roadmap-item priority">
               <h3>Unit Rules of Engagement</h3>
-
-              <p>
-                Add configurable combat stances such as Hold Fire, Return Fire,
-                and Engage in Range so the Player can control when combat units
-                automatically engage targets.
-              </p>
+              <p>Expand the implemented Hold Fire and Fire at Will controls with additional aggressive, defensive, and return-fire behavior. Preserve the shared weapon-control interface while adding distinct targeting and movement rules.</p>
             </div>
 
             <div class="roadmap-item priority">
@@ -907,13 +915,7 @@
 
             <div class="roadmap-item priority">
               <h3>Finish Menu Functions and Level Launcher</h3>
-
-              <p>
-                Expand the current in-game menu framework with functional
-                Controls, Settings, and Exit Game actions, then add a front-end
-                level launcher for starting the game and selecting available
-                maps or levels.
-              </p>
+              <p>Finish Controls and Exit Game actions and expand the menu beyond the implemented audio settings. Add map or level selection after the title-scene framework is established.</p>
             </div>
 
             <div class="roadmap-item priority">
@@ -928,12 +930,7 @@
 
             <div class="roadmap-item priority">
               <h3>Music and Sound Effects</h3>
-
-              <p>
-                Add background music and gameplay audio for vehicles, weapons,
-                construction, destruction, UI interactions, alerts, and other
-                game events.
-              </p>
+              <p>Expand the implemented background music, weapon, impact, command, and vehicle-driving audio with construction, destruction, alerts, and other gameplay sounds. Continue balancing levels and improving loop quality.</p>
             </div>
           </div>
         </details>
@@ -948,6 +945,31 @@
           </summary>
 
           <div class="roadmap-content">
+
+            <div class="roadmap-item completed">
+              <h3>Low-Poly Vehicle Model Integration</h3>
+              <p>Imported low-poly military vehicle models are integrated with existing gameplay prefabs, weapon pivots, and fire points.</p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Hold Fire and Fire at Will</h3>
+              <p>The standard command panel controls automatic firing for selected combat vehicles through IAttackController, including cancellation of unlaunched salvo shots.</p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Gameplay Audio Foundation</h3>
+              <p>Weapon shots, projectile launches and impacts, command execution, background music, and positional driving loops provide gameplay audio feedback.</p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Saved Audio Volume Settings</h3>
+              <p>The Audio settings panel provides independent music and vehicle-movement volume controls with preferences saved between sessions.</p>
+            </div>
+
+            <div class="roadmap-item completed">
+              <h3>Split Enemy Intelligence Panels</h3>
+              <p>The Enemy Info application separates economy and resource information from manpower, units, and buildings.</p>
+            </div>
 
             <div class="roadmap-item completed">
               <h3>Expandable Main Tablet</h3>

@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Last synced Assets commit: 6230c3d30443e6e0fad97b8535cd4bc8589cc617 -->
+<!-- Last synced Assets commit: 379f18059c1fa95f6d739cfec1a03237e201d554 -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -88,7 +88,7 @@
           </p>
 
           <p class="as-of-date">
-            <strong>As of:</strong> November 4, 2026
+            <strong>As of:</strong> November 13, 2026
           </p>
         </div>
       </header>
@@ -101,6 +101,60 @@
       </nav>
 
       <main class="page-content">
+
+        <!-- November 13, 2026 -->
+        <details class="date-entry">
+          <summary>
+            November 13, 2026
+            <span class="date-description">Phase 2 Models, Audio, and Fire Controls</span>
+          </summary>
+          <div class="date-content">
+            <details class="change-entry">
+              <summary>Updated Vehicle Models</summary>
+              <div class="change-documentation">
+                <p>Integrated low-poly military vehicle models into the existing gameplay prefabs. Turret and launcher pivots, visual orientation, and fire points were adjusted to work with the current weapon systems.</p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Hold Fire and Fire at Will Controls</summary>
+              <div class="change-documentation">
+                <p>Selected combat vehicles can now toggle automatic firing through the S slot of the existing command panel. The shared IAttackController interface lets direct-fire and projectile weapons respond to the same command.</p>
+                <p>Hold Fire clears the target and cancels unlaunched salvo shots while leaving movement orders unchanged. Projectiles already in flight continue. Fire at Will allows automatic engagement of hostile targets in range without issuing a pursuit order.</p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Expanded Gameplay Audio</summary>
+              <div class="change-documentation">
+                <p>Added configurable sounds for weapon shots, projectile launches and impacts, and command execution, along with background music and vehicle driving loops.</p>
+                <p>Independent one-shot playback allows impact sounds to finish after their projectile is destroyed. Driving audio follows vehicle movement, fades out when stopped or paused, and uses positional attenuation.</p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Added Audio Settings</summary>
+              <div class="change-documentation">
+                <p>Added an Audio section with separate background-music and vehicle-movement volume sliders. Changes apply immediately and are saved between sessions.</p>
+                <p>Vehicle movement volume scales each prefab's configured engine volume and applies to existing and newly spawned vehicles without changing weapon or music volume.</p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Updated Enemy Intelligence Panels</summary>
+              <div class="change-documentation">
+                <p>Separated Enemy economy, resources, and warehouse storage from manpower, unit counts, and building counts across two tablet text panels. Both displays share the same refresh cycle.</p>
+              </div>
+            </details>
+
+            <details class="change-entry">
+              <summary>Updated Phase 2 Documentation</summary>
+              <div class="change-documentation">
+                <p>Updated the Phase 2 technical write-up to cover unit creation and control, construction, resource collection and consumption, the tablet-based UI, and planned improvements. Added project organization and credits for imported models, music, and sound effects.</p>
+              </div>
+            </details>
+          </div>
+        </details>
 
         <!-- November 4, 2026 -->
         <details class="date-entry">

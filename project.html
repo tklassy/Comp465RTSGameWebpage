@@ -29,7 +29,7 @@
           </p>
 
           <p class="as-of-date">
-            <strong>As of:</strong> November 3, 2026
+            <strong>As of:</strong> November 13, 2026
           </p>
         </div>
       </header>
@@ -150,6 +150,8 @@
           <div class="content-wrap">
             <h2>Combat</h2>
 
+            <p>Selected combat vehicles can switch between Hold Fire and Fire at Will through the standard command panel. IAttackController provides common controls for direct-fire and projectile weapons. Hold Fire clears targets and cancels unlaunched salvo shots; projectiles already in flight continue.</p>
+
             <p>
               Armed vehicles can automatically detect hostile Player or Enemy
               objects, rotate toward targets, fire weapons, deal damage, and
@@ -184,17 +186,11 @@
           <div class="content-wrap">
             <h2>Enemy Forces</h2>
 
-            <p>
-              Enemy vehicles use predefined waypoint routes and NavMesh
-              navigation to travel toward the Player's base.
-            </p>
+            <p>EnemyAIManager maintains an Enemy Humvee force through the normal production queue, spending Enemy Money, resources, and manpower. Player and Enemy economies are managed separately.</p>
 
-            <p>
-              Enemy production is currently handled by a destructible enemy
-              building. The building periodically spawns enemy vehicles and
-              assigns them to the configured attack route. Destroying the
-              production building stops future enemy vehicle spawns.
-            </p>
+            <p>Enemy vehicles collect Metal and Electronics from shared resource nodes and return cargo to the Enemy Warehouse. Available vehicles can be assigned to collection, looping patrol routes, or an attack route toward the Player.</p>
+
+            <p>Enemy construction, base expansion, larger attack groups, and more adaptive economy priorities remain planned.</p>
           </div>
         </section>
 
@@ -202,29 +198,11 @@
           <div class="content-wrap">
             <h2>User Interface</h2>
 
-            <p>
-              The HUD provides resource totals, manpower, game time, selection
-              information, health, cargo information, production progress, and
-              command controls.
-            </p>
+            <p>The HUD provides resource totals, manpower, game time, selection information, health, cargo, production progress, and command controls. Command hover tooltips explain actions and show construction, production, and manpower costs.</p>
 
-            <p>
-              An in-game menu provides Return to Game, Controls, Settings, Dev
-              Commands, and Exit Game options. The developer panel can remain
-              open independently and includes resource controls for testing.
-            </p>
+            <p>The in-game menu includes Return to Game, Controls, Settings, Dev Commands, and Exit Game options. Settings now provides separate music and vehicle-movement volume sliders with saved preferences; Controls and Exit remain areas for further menu work.</p>
 
-            <p>
-              Command-button hover tooltips are being integrated using shared
-              prefab and production data for names, descriptions, resource
-              costs, and manpower requirements.
-            </p>
-
-            <p>
-              Health and production bars use reusable Simple UISprite-based
-              displays that resize using anchors rather than Unity Filled Image
-              rendering.
-            </p>
+            <p>The Enemy Info application separates economy and resources from manpower, units, and buildings across two text panels. Health and production bars use reusable Simple UISprite-based displays.</p>
           </div>
         </section>
 
@@ -232,69 +210,23 @@
           <div class="content-wrap">
             <h2>Tablet-Based Command Interface</h2>
 
-            <p>
-              The planned interface direction is built around a military-style
-              tablet system that gives the Player a consistent way to access
-              logistics, economy, production, objectives, alerts, upgrades, and
-              other detailed information.
-            </p>
+            <p>The interface uses a ruggedized military tablet design. The main tablet expands and retracts while its top information area remains connected to the device. Smaller command and information panels follow the same visual theme.</p>
 
-            <p>
-              During normal gameplay, most of the primary tablet will remain
-              hidden above the screen. Only its lower edge will remain visible,
-              forming the existing top HUD and displaying important information
-              such as Money, Manpower, resources, game time, and alerts.
-            </p>
+            <p>The tablet desktop supports independently opened Help, Resources, Logistics, Units, Buildings, Enemy Info, and Upgrades applications. These provide a reusable framework for management information; Upgrades remains a placeholder for future progression.</p>
 
-            <p>
-              When the Player selects information that requires a larger
-              interface, the tablet will slide down and occupy a larger portion
-              of the screen. The tablet itself will become the background and
-              frame for the selected management page instead of opening an
-              unrelated full-screen menu.
-            </p>
-
-            <p>
-              Different pages can provide access to logistics networks, resource
-              storage, production, Player economy, objectives, supply warnings,
-              strategic overlays, and future upgrades. Selecting information
-              from the normal HUD should open the tablet directly to the
-              relevant page.
-            </p>
-
-            <p>
-              The battlefield will remain the primary gameplay space. Movement,
-              combat, construction, selection, and the command panel will remain
-              immediately accessible without requiring the main tablet to be
-              opened.
-            </p>
-
-            <p>
-              Smaller HUD elements will follow the same physical-interface
-              concept. The command panel, selected-object information panel, and
-              other UI elements can appear as smaller tablet displays or
-              military electronic devices, giving the interface a consistent
-              visual identity without making every panel part of the main
-              tablet.
-            </p>
-
-            <p>
-              These smaller displays can also include decorative buttons,
-              indicators, and occasional hidden interactions or Easter eggs that
-              do not interfere with normal gameplay.
-            </p>
-
-            <p>
-              Tablet pages can also control information displayed directly over
-              the battlefield. A logistics or supply page could enable overlays
-              for active routes, resource nodes, warehouses, vehicle cargo,
-              weapon ranges, low-supply warnings, and production shortages while
-              the Player continues viewing the game world.
-            </p>
+            <p>Battlefield movement, combat, construction, selection, and command controls remain accessible without opening the main tablet. Objectives, supply warnings, strategic overlays, and further tablet polish remain planned.</p>
           </div>
         </section>
 
         <section class="project-section alternate">
+          <div class="content-wrap">
+            <h2>Models and Audio</h2>
+            <p>Low-poly military models are integrated into vehicle prefabs with configured turret pivots, launcher pivots, and fire points. Gameplay scripts remain separate from the visual model hierarchy.</p>
+            <p>Weapons, projectile impacts, command execution, vehicle movement, and background music have audio feedback. Driving loops fade with movement, while independent impact sounds can finish after a projectile disappears. Settings controls music and driving volume separately.</p>
+          </div>
+        </section>
+
+        <section class="project-section">
           <div class="content-wrap">
             <h2>Planned Features</h2>
 
@@ -305,8 +237,8 @@
                 Additional muzzle flashes, explosions, and destruction effects
               </li>
               <li>
-                RTS-style enemy base AI using the same economy, construction,
-                production, and logistics rules as the Player
+                Enemy construction, base expansion, larger attack groups, and
+                smarter economy priorities
               </li>
               <li>Construction sites requiring delivered resources</li>
               <li>Import and export logistics systems</li>
